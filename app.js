@@ -112,7 +112,6 @@ const elements = {
   completionBar: document.querySelector("#completion-bar"),
   completionMessage: document.querySelector("#completion-message"),
   restartButton: document.querySelector("#restart-button"),
-  dataSource: document.querySelector("#data-source"),
 };
 
 const L = window.L;
@@ -638,7 +637,6 @@ async function loadQuiz() {
 
   elements.score.textContent = `0/${markets.length}`;
   elements.timer.textContent = formatTime(QUIZ_SECONDS);
-  elements.dataSource.textContent = `${quizData.sourceWorkbook} · ${markets.length} country/territory answers`;
   elements.mapLoading.hidden = true;
   elements.startButtonLabel.textContent = "QUIZ SPIELEN";
   elements.startButton.disabled = false;

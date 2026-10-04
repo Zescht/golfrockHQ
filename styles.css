@@ -220,7 +220,8 @@ footer {
 
 .counter {
   min-width: 0;
-  padding-top: 8px;
+  align-self: center;
+  padding-top: 0;
 }
 
 .counter > span {
@@ -314,7 +315,7 @@ footer {
 .quiz-variant-2 .europe-inset {
   top: auto;
   bottom: 14.1%;
-  left: 35.1%;
+  left: 36.4%;
   width: min(17.5%, 224px);
 }
 
@@ -541,7 +542,7 @@ footer {
   .quiz-variant-2 .europe-inset {
     top: auto;
     bottom: 14.1%;
-    left: 35.1%;
+    left: 36.4%;
     width: 22.4%;
   }
 
