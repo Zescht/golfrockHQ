@@ -128,11 +128,12 @@ footer {
 }
 
 .intro > p:last-child {
-  max-width: 720px;
+  max-width: none;
   margin: 18px 0 0;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.5;
+  white-space: nowrap;
 }
 
 .quiz {
@@ -312,8 +313,8 @@ footer {
 
 .quiz-variant-2 .europe-inset {
   top: auto;
-  bottom: 12.7%;
-  left: calc(37.2% - 80px);
+  bottom: 14.1%;
+  left: 35.1%;
   width: min(17.5%, 224px);
 }
 
@@ -540,8 +541,12 @@ footer {
   .quiz-variant-2 .europe-inset {
     top: auto;
     bottom: 14.1%;
-    left: calc(34.8% - 56px);
+    left: 35.1%;
     width: 22.4%;
+  }
+
+  .intro > p:last-child {
+    white-space: normal;
   }
 
   .europe-inset > span {
