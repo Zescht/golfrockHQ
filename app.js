@@ -19,6 +19,7 @@ const UI_TEXT = {
     answerLabel: "Enter Countries:",
     answerHelp:
       "Correct full country or territory names are accepted automatically. Incorrect answers receive no response.",
+    scoreLabel: "POINTS",
     timerLabel: "TIMER",
     giveUp: "Give up",
     mapAria: "World map. Correct answers are highlighted on their country or territory.",
@@ -43,6 +44,7 @@ const UI_TEXT = {
     answerLabel: "Länder eingeben:",
     answerHelp:
       "Korrekte vollständige Namen von Ländern oder Gebieten werden automatisch angenommen. Bei falschen Antworten erfolgt keine Reaktion.",
+    scoreLabel: "PUNKTE",
     timerLabel: "ZEIT",
     giveUp: "Aufgeben",
     mapAria: "Weltkarte. Richtige Antworten werden im jeweiligen Land oder Gebiet hervorgehoben.",
@@ -271,6 +273,7 @@ const elements = {
   answerLabel: document.querySelector("#answer-label"),
   answerHelp: document.querySelector("#answer-help"),
   answerInput: document.querySelector("#answer-input"),
+  scoreLabel: document.querySelector("#score-label"),
   score: document.querySelector("#score"),
   timerLabel: document.querySelector("#timer-label"),
   timer: document.querySelector("#timer"),
@@ -334,6 +337,7 @@ function applyLanguage() {
   elements.introText.textContent = copy.intro;
   elements.answerLabel.textContent = copy.answerLabel;
   elements.answerHelp.textContent = copy.answerHelp;
+  elements.scoreLabel.textContent = copy.scoreLabel;
   elements.timerLabel.textContent = copy.timerLabel;
   elements.giveUpButton.textContent = copy.giveUp;
   elements.worldMap.setAttribute("aria-label", copy.mapAria);

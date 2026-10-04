@@ -102,15 +102,17 @@ button {
 }
 
 .language-menu::after {
-  content: "⌄";
+  content: "";
   position: absolute;
   right: 11px;
   top: 50%;
-  color: #25292d;
-  font-size: 15px;
-  line-height: 1;
+  width: 0;
+  height: 0;
+  border-top: 5px solid #25292d;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
   pointer-events: none;
-  transform: translateY(-58%);
+  transform: translateY(-50%);
 }
 
 .language-menu select {
