@@ -29,7 +29,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -92,6 +93,45 @@ button {
 
 .brand-bars i:nth-child(2) {
   height: 22px;
+}
+
+.language-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.language-menu::after {
+  content: "⌄";
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  color: #25292d;
+  font-size: 15px;
+  line-height: 1;
+  pointer-events: none;
+  transform: translateY(-58%);
+}
+
+.language-menu select {
+  width: 66px;
+  height: 34px;
+  padding: 0 30px 0 12px;
+  appearance: none;
+  border: 1px solid #c7cbd0;
+  border-radius: 4px;
+  outline: 0;
+  color: var(--ink);
+  background: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+
+.language-menu select:focus-visible {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 2px rgba(17, 103, 223, .18);
 }
 
 .source-badge {

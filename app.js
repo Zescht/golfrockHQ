@@ -1,10 +1,170 @@
 const QUIZ_SECONDS = 10 * 60;
 
-const requestedVariant =
-  new URLSearchParams(window.location.search).get("variant") || "2";
+const queryParameters = new URLSearchParams(window.location.search);
+const requestedVariant = queryParameters.get("variant") || "2";
+const requestedLanguage = queryParameters.get("lang") === "de" ? "de" : "en";
+document.documentElement.lang = requestedLanguage;
 if (requestedVariant === "1" || requestedVariant === "2") {
   document.documentElement.classList.add(`quiz-variant-${requestedVariant}`);
 }
+
+const UI_TEXT = {
+  en: {
+    languageLabel: "Language",
+    pageTitle: "Countries with a Porsche Centre — World Map Quiz",
+    titleLine1: "Countries and overseas territories",
+    titleLine2: "with a Porsche Centre",
+    intro:
+      "Name every country or territory containing at least one official Porsche-branded location. Each country counts once.",
+    answerLabel: "Enter Countries:",
+    answerHelp:
+      "Correct full country or territory names are accepted automatically. Incorrect answers receive no response.",
+    timerLabel: "TIMER",
+    giveUp: "Give up",
+    mapAria: "World map. Correct answers are highlighted on their country or territory.",
+    europeAria: "Enlarged map of Europe",
+    europeLabel: "EUROPE",
+    loadingMap: "Loading world map…",
+    startQuiz: "PLAY QUIZ",
+    playAgain: "Play again",
+    mapLoadFailed: "The world map could not be loaded.",
+    attribution: "Map and boundaries:",
+    perfect: (count) => `Perfect — you found all ${count} countries and territories.`,
+    revealed: (found, total) =>
+      `You found ${found} of ${total}. The remaining answers are now revealed.`,
+  },
+  de: {
+    languageLabel: "Sprache",
+    pageTitle: "Länder mit einem Porsche Zentrum — Weltkarten-Quiz",
+    titleLine1: "Länder und Überseegebiete",
+    titleLine2: "mit einem Porsche Zentrum",
+    intro:
+      "Nenne jedes Land oder Gebiet mit mindestens einem offiziellen Porsche-Standort. Jedes Land zählt einmal.",
+    answerLabel: "Länder eingeben:",
+    answerHelp:
+      "Korrekte vollständige Namen von Ländern oder Gebieten werden automatisch angenommen. Bei falschen Antworten erfolgt keine Reaktion.",
+    timerLabel: "ZEIT",
+    giveUp: "Aufgeben",
+    mapAria: "Weltkarte. Richtige Antworten werden im jeweiligen Land oder Gebiet hervorgehoben.",
+    europeAria: "Vergrößerte Europakarte",
+    europeLabel: "EUROPA",
+    loadingMap: "Weltkarte wird geladen…",
+    startQuiz: "QUIZ SPIELEN",
+    playAgain: "Nochmal spielen",
+    mapLoadFailed: "Die Weltkarte konnte nicht geladen werden.",
+    attribution: "Karte und Grenzen:",
+    perfect: (count) => `Perfekt — du hast alle ${count} Länder und Gebiete gefunden.`,
+    revealed: (found, total) =>
+      `Du hast ${found} von ${total} gefunden. Die übrigen Antworten werden jetzt angezeigt.`,
+  },
+};
+
+const copy = UI_TEXT[requestedLanguage];
+
+const GERMAN_MARKET_NAMES = {
+  Argentina: "Argentinien",
+  Armenia: "Armenien",
+  Australia: "Australien",
+  Austria: "Österreich",
+  Azerbaijan: "Aserbaidschan",
+  Bahrain: "Bahrain",
+  Belgium: "Belgien",
+  Brazil: "Brasilien",
+  Brunei: "Brunei",
+  Bulgaria: "Bulgarien",
+  Cambodia: "Kambodscha",
+  Canada: "Kanada",
+  Chile: "Chile",
+  China: "China",
+  Colombia: "Kolumbien",
+  "Costa Rica": "Costa Rica",
+  Croatia: "Kroatien",
+  "Curaçao": "Curaçao",
+  Cyprus: "Zypern",
+  "Czech Republic": "Tschechien",
+  Denmark: "Dänemark",
+  "Dominican Republic": "Dominikanische Republik",
+  Ecuador: "Ecuador",
+  Egypt: "Ägypten",
+  "El Salvador": "El Salvador",
+  Estonia: "Estland",
+  Finland: "Finnland",
+  France: "Frankreich",
+  "French Polynesia": "Französisch-Polynesien",
+  Georgia: "Georgien",
+  Germany: "Deutschland",
+  Greece: "Griechenland",
+  Guadeloupe: "Guadeloupe",
+  Guatemala: "Guatemala",
+  Honduras: "Honduras",
+  "Hong Kong": "Hongkong",
+  Hungary: "Ungarn",
+  Iceland: "Island",
+  India: "Indien",
+  Indonesia: "Indonesien",
+  Ireland: "Irland",
+  Israel: "Israel",
+  Italy: "Italien",
+  Jamaica: "Jamaika",
+  Japan: "Japan",
+  Jordan: "Jordanien",
+  Kazakhstan: "Kasachstan",
+  Kenya: "Kenia",
+  Kuwait: "Kuwait",
+  Latvia: "Lettland",
+  Lebanon: "Libanon",
+  Lithuania: "Litauen",
+  Luxembourg: "Luxemburg",
+  Macau: "Macau",
+  Malaysia: "Malaysia",
+  Malta: "Malta",
+  Martinique: "Martinique",
+  Mauritius: "Mauritius",
+  Mexico: "Mexiko",
+  Moldova: "Moldau",
+  Monaco: "Monaco",
+  Mongolia: "Mongolei",
+  Morocco: "Marokko",
+  Netherlands: "Niederlande",
+  "New Caledonia": "Neukaledonien",
+  "New Zealand": "Neuseeland",
+  "North Macedonia": "Nordmazedonien",
+  Norway: "Norwegen",
+  Oman: "Oman",
+  Panama: "Panama",
+  Paraguay: "Paraguay",
+  Peru: "Peru",
+  Philippines: "Philippinen",
+  Poland: "Polen",
+  Portugal: "Portugal",
+  "Puerto Rico": "Puerto Rico",
+  Qatar: "Katar",
+  Réunion: "Réunion",
+  Romania: "Rumänien",
+  "Saudi Arabia": "Saudi-Arabien",
+  Serbia: "Serbien",
+  Singapore: "Singapur",
+  Slovakia: "Slowakei",
+  Slovenia: "Slowenien",
+  "South Africa": "Südafrika",
+  "South Korea": "Südkorea",
+  Spain: "Spanien",
+  "Sri Lanka": "Sri Lanka",
+  Sweden: "Schweden",
+  Switzerland: "Schweiz",
+  Taiwan: "Taiwan",
+  Thailand: "Thailand",
+  "Trinidad and Tobago": "Trinidad und Tobago",
+  Tunisia: "Tunesien",
+  Türkiye: "Türkei",
+  Ukraine: "Ukraine",
+  "United Arab Emirates": "Vereinigte Arabische Emirate",
+  "United Kingdom": "Vereinigtes Königreich",
+  "United States": "Vereinigte Staaten",
+  Uruguay: "Uruguay",
+  Uzbekistan: "Usbekistan",
+  Vietnam: "Vietnam",
+};
 
 const EXTRA_ALIASES = {
   Austria: ["österreich", "osterreich"],
@@ -100,15 +260,25 @@ const EUROPE_INSET_EXTRAS = new Set(["Cyprus", "Türkiye"]);
 const EUROPE_WORLD_LABELS = new Set(["Iceland", "Russia"]);
 
 const elements = {
+  languageLabel: document.querySelector("#language-label"),
+  languageSelect: document.querySelector("#language-select"),
+  titleLine1: document.querySelector("#title-line-1"),
+  titleLine2: document.querySelector("#title-line-2"),
+  introText: document.querySelector("#intro-text"),
   startButton: document.querySelector("#start-button"),
   startButtonLabel: document.querySelector("#start-button-label"),
   answerForm: document.querySelector("#answer-form"),
+  answerLabel: document.querySelector("#answer-label"),
+  answerHelp: document.querySelector("#answer-help"),
   answerInput: document.querySelector("#answer-input"),
   score: document.querySelector("#score"),
+  timerLabel: document.querySelector("#timer-label"),
   timer: document.querySelector("#timer"),
   giveUpButton: document.querySelector("#give-up-button"),
+  worldMap: document.querySelector("#world-map"),
   mapLoading: document.querySelector("#map-loading"),
   europeInset: document.querySelector("#europe-inset"),
+  europeLabel: document.querySelector("#europe-label"),
   completionBar: document.querySelector("#completion-bar"),
   completionMessage: document.querySelector("#completion-message"),
   restartButton: document.querySelector("#restart-button"),
@@ -150,10 +320,40 @@ function formatTime(seconds) {
   return `${String(minutes).padStart(2, "0")}:${String(remainder).padStart(2, "0")}`;
 }
 
+function displayMarketName(name) {
+  return requestedLanguage === "de" ? GERMAN_MARKET_NAMES[name] || name : name;
+}
+
+function applyLanguage() {
+  document.title = copy.pageTitle;
+  elements.languageLabel.textContent = copy.languageLabel;
+  elements.languageSelect.setAttribute("aria-label", copy.languageLabel);
+  elements.languageSelect.value = requestedLanguage;
+  elements.titleLine1.textContent = copy.titleLine1;
+  elements.titleLine2.textContent = copy.titleLine2;
+  elements.introText.textContent = copy.intro;
+  elements.answerLabel.textContent = copy.answerLabel;
+  elements.answerHelp.textContent = copy.answerHelp;
+  elements.timerLabel.textContent = copy.timerLabel;
+  elements.giveUpButton.textContent = copy.giveUp;
+  elements.worldMap.setAttribute("aria-label", copy.mapAria);
+  elements.europeInset.setAttribute("aria-label", copy.europeAria);
+  elements.europeLabel.textContent = copy.europeLabel;
+  elements.mapLoading.textContent = copy.loadingMap;
+  elements.restartButton.textContent = copy.playAgain;
+}
+
+applyLanguage();
+
 function buildAnswerLookup() {
   answerLookup = new Map();
   for (const market of markets) {
-    for (const answer of [market.name, ...(EXTRA_ALIASES[market.name] || [])]) {
+    const answers = [
+      market.name,
+      GERMAN_MARKET_NAMES[market.name],
+      ...(EXTRA_ALIASES[market.name] || []),
+    ].filter(Boolean);
+    for (const answer of answers) {
       const key = normalize(answer);
       const existing = answerLookup.get(key);
       if (existing && existing.id !== market.id) {
@@ -435,7 +635,7 @@ function initializeMap(geojson) {
   elements.europeInset.hidden = true;
 
   map.attributionControl.addAttribution(
-    'Map and boundaries: <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
+    `${copy.attribution} <a href="https://www.naturalearthdata.com/">Natural Earth</a>`
   );
   map.on("zoomend moveend", scheduleLabelLayout);
   europeMap.on("zoomend moveend", scheduleLabelLayout);
@@ -479,7 +679,7 @@ function resetMapAnswers() {
 
 function addAnswerLabel(targetMap, point, market, state, fixed) {
   const labelNode = document.createElement("span");
-  labelNode.textContent = market.name;
+  labelNode.textContent = displayMarketName(market.name);
   const label = L.tooltip({
     permanent: true,
     direction: "center",
@@ -611,8 +811,8 @@ function finishQuiz(reason) {
 
   const message =
     reason === "complete"
-      ? `Perfect — you found all ${markets.length} countries and territories.`
-      : `You found ${guessed.size} of ${markets.length}. The remaining answers are now revealed.`;
+      ? copy.perfect(markets.length)
+      : copy.revealed(guessed.size, markets.length);
   elements.completionMessage.textContent = message;
   elements.completionBar.hidden = false;
 }
@@ -638,7 +838,7 @@ async function loadQuiz() {
   elements.score.textContent = `0/${markets.length}`;
   elements.timer.textContent = formatTime(QUIZ_SECONDS);
   elements.mapLoading.hidden = true;
-  elements.startButtonLabel.textContent = "QUIZ SPIELEN";
+  elements.startButtonLabel.textContent = copy.startQuiz;
   elements.startButton.disabled = false;
 }
 
@@ -647,10 +847,15 @@ elements.restartButton.addEventListener("click", startQuiz);
 elements.answerInput.addEventListener("input", tryAnswer);
 elements.answerForm.addEventListener("submit", (event) => event.preventDefault());
 elements.giveUpButton.addEventListener("click", () => finishQuiz("giveup"));
+elements.languageSelect.addEventListener("change", () => {
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", elements.languageSelect.value);
+  window.location.assign(url);
+});
 
 loadQuiz().catch((error) => {
   console.error(error);
-  elements.mapLoading.textContent = "The world map could not be loaded.";
-  elements.startButtonLabel.textContent = "MAP LOAD FAILED";
+  elements.mapLoading.textContent = copy.mapLoadFailed;
+  elements.startButtonLabel.textContent = copy.mapLoadFailed.toUpperCase();
   elements.startButton.disabled = true;
 });
