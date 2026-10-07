@@ -1,0 +1,25 @@
+{
+  "answerCount": 20,
+  "regions": [
+    {"id":"piedmont","code":"01","en":"Piedmont","de":"Piemont","it":"Piemonte","aliases":["Piedmont","Piemont","Piemonte"],"labelPoint":[45.05,7.75]},
+    {"id":"aosta-valley","code":"02","en":"Aosta Valley","de":"Aostatal","it":"Valle d'Aosta","aliases":["Aosta Valley","Aostatal","Valle d'Aosta","Vallee d'Aoste","Vallée d'Aoste"],"labelPoint":[45.73,7.32]},
+    {"id":"lombardy","code":"03","en":"Lombardy","de":"Lombardei","it":"Lombardia","aliases":["Lombardy","Lombardei","Lombardia"],"labelPoint":[45.57,9.65]},
+    {"id":"trentino-south-tyrol","code":"04","en":"Trentino-Alto Adige/South Tyrol","de":"Trentino-Südtirol","it":"Trentino-Alto Adige/Südtirol","aliases":["Trentino-Alto Adige/South Tyrol","Trentino Alto Adige","South Tyrol","Trentino-Südtirol","Trentino Südtirol","Südtirol","Sudtirol","Trentino-Alto Adige/Südtirol"],"labelPoint":[46.42,11.27]},
+    {"id":"veneto","code":"05","en":"Veneto","de":"Venetien","it":"Veneto","aliases":["Veneto","Venetien"],"labelPoint":[45.72,11.86]},
+    {"id":"friuli-venezia-giulia","code":"06","en":"Friuli Venezia Giulia","de":"Friaul-Julisch Venetien","it":"Friuli-Venezia Giulia","aliases":["Friuli Venezia Giulia","Friuli-Venezia Giulia","Friaul-Julisch Venetien","Friaul Julisch Venetien"],"labelPoint":[46.13,13.05]},
+    {"id":"liguria","code":"07","en":"Liguria","de":"Ligurien","it":"Liguria","aliases":["Liguria","Ligurien"],"labelPoint":[44.2,8.55]},
+    {"id":"emilia-romagna","code":"08","en":"Emilia-Romagna","de":"Emilia-Romagna","it":"Emilia-Romagna","aliases":["Emilia-Romagna","Emilia Romagna"],"labelPoint":[44.58,10.72]},
+    {"id":"tuscany","code":"09","en":"Tuscany","de":"Toskana","it":"Toscana","aliases":["Tuscany","Toskana","Toscana"],"labelPoint":[43.4,11.02]},
+    {"id":"umbria","code":"10","en":"Umbria","de":"Umbrien","it":"Umbria","aliases":["Umbria","Umbrien"],"labelPoint":[42.98,12.48]},
+    {"id":"marche","code":"11","en":"Marche","de":"Marken","it":"Marche","aliases":["Marche","The Marches","Marken"],"labelPoint":[43.2,13.1]},
+    {"id":"lazio","code":"12","en":"Lazio","de":"Latium","it":"Lazio","aliases":["Lazio","Latium"],"labelPoint":[41.93,12.64]},
+    {"id":"abruzzo","code":"13","en":"Abruzzo","de":"Abruzzen","it":"Abruzzo","aliases":["Abruzzo","Abruzzen"],"labelPoint":[42.21,13.72]},
+    {"id":"molise","code":"14","en":"Molise","de":"Molise","it":"Molise","aliases":["Molise"],"labelPoint":[41.67,14.61]},
+    {"id":"campania","code":"15","en":"Campania","de":"Kampanien","it":"Campania","aliases":["Campania","Kampanien"],"labelPoint":[40.92,14.85]},
+    {"id":"apulia","code":"16","en":"Apulia","de":"Apulien","it":"Puglia","aliases":["Apulia","Apulien","Puglia"],"labelPoint":[41.02,16.77]},
+    {"id":"basilicata","code":"17","en":"Basilicata","de":"Basilikata","it":"Basilicata","aliases":["Basilicata","Basilikata","Lucania"],"labelPoint":[40.53,16.05]},
+    {"id":"calabria","code":"18","en":"Calabria","de":"Kalabrien","it":"Calabria","aliases":["Calabria","Kalabrien"],"labelPoint":[39.15,16.42]},
+    {"id":"sicily","code":"19","en":"Sicily","de":"Sizilien","it":"Sicilia","aliases":["Sicily","Sizilien","Sicilia"],"labelPoint":[37.55,14.05]},
+    {"id":"sardinia","code":"20","en":"Sardinia","de":"Sardinien","it":"Sardegna","aliases":["Sardinia","Sardinien","Sardegna"],"labelPoint":[40.0,9.02]}
+  ]
+}

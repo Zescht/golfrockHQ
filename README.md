@@ -1,11 +1,14 @@
-# golfrockHQ
+# GolfRock Headquarter quizzes
 
-An interactive world-map quiz covering countries and overseas territories with at least one official Porsche-branded location.
+Static bilingual map quizzes published through GitHub Pages.
 
-The GitHub Pages root uses the selected Variant 2 layout by default.
+- Porsche Centre: `/porsche/?lang=en` or `/porsche/?lang=de`
+- Italian Regions: `/italian-regions/?lang=en` or `/italian-regions/?lang=de`
 
-## Data and map attribution
+The root page redirects to the Porsche quiz and preserves the selected language.
 
-- Location coverage is derived from the verified Porsche directory maintained with this project.
-- Map imagery and boundaries are from [Natural Earth](https://www.naturalearthdata.com/).
-- Interactive map rendering uses [Leaflet](https://leafletjs.com/).
+## Data sources
+
+- Porsche quiz answers: project-maintained official Porsche location workbook export.
+- World boundaries and relief: Natural Earth.
+- Italian regional boundaries: ISTAT-derived data distributed by [`guglielmo/geojson-italy`](https://github.com/guglielmo/geojson-italy) under CC BY 4.0.

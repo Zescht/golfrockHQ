@@ -1,0 +1,1441 @@
+{
+  "sourceWorkbook": "official_porsche_dealerships_worldwide_V2_All_Official_Locations.xlsx",
+  "sourceModified": "2026-10-02T11:32:13+02:00",
+  "locationCount": 1058,
+  "answerCount": 102,
+  "markets": [
+    {
+      "id": "argentina",
+      "name": "Argentina",
+      "geometryIds": [
+        "ARG"
+      ],
+      "locationCount": 2,
+      "continent": "South America",
+      "label": [
+        -33.501159,
+        -64.173331
+      ],
+      "tiny": false
+    },
+    {
+      "id": "armenia",
+      "name": "Armenia",
+      "geometryIds": [
+        "ARM"
+      ],
+      "locationCount": 1,
+      "continent": "Asia",
+      "label": [
+        40.459077,
+        44.800564
+      ],
+      "tiny": false
+    },
+    {
+      "id": "australia",
+      "name": "Australia",
+      "geometryIds": [
+        "AUS"
+      ],
+      "locationCount": 16,
+      "continent": "Oceania",
+      "label": [
+        -24.129522,
+        134.04972
+      ],
+      "tiny": false
+    },
+    {
+      "id": "austria",
+      "name": "Austria",
+      "geometryIds": [
+        "AUT"
+      ],
+      "locationCount": 12,
+      "continent": "Europe",
+      "label": [
+        47.518859,
+        14.130515
+      ],
+      "tiny": false
+    },
+    {
+      "id": "azerbaijan",
+      "name": "Azerbaijan",
+      "geometryIds": [
+        "AZE"
+      ],
+      "locationCount": 1,
+      "continent": "Asia",
+      "label": [
+        40.402387,
+        47.210994
+      ],
+      "tiny": false
+    },
+    {
+      "id": "bahrain",
+      "name": "Bahrain",
+      "geometryIds": [
+        "BHR"
+      ],
+      "locationCount": 3,
+      "continent": "Asia",
+      "label": [
+        26.055972,
+        50.554816
+      ],
+      "tiny": true
+    },
+    {
+      "id": "belgium",
+      "name": "Belgium",
+      "geometryIds": [
+        "BFR",
+        "BWR",
+        "BCR"
+      ],
+      "locationCount": 11,
+      "continent": "Europe",
+      "label": [
+        50.65,
+        4.67
+      ],
+      "tiny": false
+    },
+    {
+      "id": "brazil",
+      "name": "Brazil",
+      "geometryIds": [
+        "BRA"
+      ],
+      "locationCount": 19,
+      "continent": "South America",
+      "label": [
+        -12.098687,
+        -49.55945
+      ],
+      "tiny": false
+    },
+    {
+      "id": "brunei",
+      "name": "Brunei",
+      "geometryIds": [
+        "BRN"
+      ],
+      "locationCount": 1,
+      "continent": "Asia",
+      "label": [
+        4.448298,
+        114.551943
+      ],
+      "tiny": true
+    },
+    {
+      "id": "bulgaria",
+      "name": "Bulgaria",
+      "geometryIds": [
+        "BGR"
+      ],
+      "locationCount": 2,
+      "continent": "Europe",
+      "label": [
+        42.508785,
+        25.15709
+      ],
+      "tiny": false
+    },
+    {
+      "id": "cambodia",
+      "name": "Cambodia",
+      "geometryIds": [
+        "KHM"
+      ],
+      "locationCount": 1,
+      "continent": "Asia",
+      "label": [
+        12.647584,
+        104.50487
+      ],
+      "tiny": false
+    },
+    {
+      "id": "canada",
+      "name": "Canada",
+      "geometryIds": [
+        "CAN"
+      ],
+      "locationCount": 25,
+      "continent": "North America",
+      "label": [
+        60.324287,
+        -101.9107
+      ],
+      "tiny": false
+    },
+    {
+      "id": "chile",
+      "name": "Chile",
+      "geometryIds": [
+        "CHL"
+      ],
+      "locationCount": 2,
+      "continent": "South America",
+      "label": [
+        -38.151771,
+        -72.318871
+      ],
+      "tiny": false
+    },
+    {
+      "id": "china",
+      "name": "China",
+      "geometryIds": [
+        "CHN"
+      ],
+      "locationCount": 101,
+      "continent": "Asia",
+      "label": [
+        32.498178,
+        106.337289
+      ],
+      "tiny": false
+    },
+    {
+      "id": "colombia",
+      "name": "Colombia",
+      "geometryIds": [
+        "COL"
+      ],
+      "locationCount": 4,
+      "continent": "South America",
+      "label": [
+        3.373111,
+        -73.174347
+      ],
+      "tiny": false
+    },
+    {
+      "id": "costa-rica",
+      "name": "Costa Rica",
+      "geometryIds": [
+        "CRI"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        10.0651,
+        -84.077922
+      ],
+      "tiny": false
+    },
+    {
+      "id": "croatia",
+      "name": "Croatia",
+      "geometryIds": [
+        "HRV"
+      ],
+      "locationCount": 1,
+      "continent": "Europe",
+      "label": [
+        45.805799,
+        16.37241
+      ],
+      "tiny": false
+    },
+    {
+      "id": "curacao",
+      "name": "Curaçao",
+      "geometryIds": [
+        "CUW"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        12.145039,
+        -68.920578
+      ],
+      "tiny": true
+    },
+    {
+      "id": "cyprus",
+      "name": "Cyprus",
+      "geometryIds": [
+        "CYP"
+      ],
+      "locationCount": 2,
+      "continent": "Asia",
+      "label": [
+        34.913329,
+        33.084182
+      ],
+      "tiny": false
+    },
+    {
+      "id": "czech-republic",
+      "name": "Czech Republic",
+      "geometryIds": [
+        "CZE"
+      ],
+      "locationCount": 4,
+      "continent": "Europe",
+      "label": [
+        49.882364,
+        15.377555
+      ],
+      "tiny": false
+    },
+    {
+      "id": "denmark",
+      "name": "Denmark",
+      "geometryIds": [
+        "DNK"
+      ],
+      "locationCount": 3,
+      "continent": "Europe",
+      "label": [
+        55.966965,
+        9.018163
+      ],
+      "tiny": false
+    },
+    {
+      "id": "dominican-republic",
+      "name": "Dominican Republic",
+      "geometryIds": [
+        "DOM"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        19.104137,
+        -70.653998
+      ],
+      "tiny": false
+    },
+    {
+      "id": "ecuador",
+      "name": "Ecuador",
+      "geometryIds": [
+        "ECU"
+      ],
+      "locationCount": 2,
+      "continent": "South America",
+      "label": [
+        -1.259076,
+        -78.188375
+      ],
+      "tiny": false
+    },
+    {
+      "id": "egypt",
+      "name": "Egypt",
+      "geometryIds": [
+        "EGY"
+      ],
+      "locationCount": 3,
+      "continent": "Africa",
+      "label": [
+        26.186173,
+        29.445837
+      ],
+      "tiny": false
+    },
+    {
+      "id": "el-salvador",
+      "name": "El Salvador",
+      "geometryIds": [
+        "SLV"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        13.685371,
+        -88.890124
+      ],
+      "tiny": false
+    },
+    {
+      "id": "estonia",
+      "name": "Estonia",
+      "geometryIds": [
+        "EST"
+      ],
+      "locationCount": 1,
+      "continent": "Europe",
+      "label": [
+        58.724865,
+        25.867126
+      ],
+      "tiny": false
+    },
+    {
+      "id": "finland",
+      "name": "Finland",
+      "geometryIds": [
+        "FIN"
+      ],
+      "locationCount": 5,
+      "continent": "Europe",
+      "label": [
+        63.252361,
+        27.276449
+      ],
+      "tiny": false
+    },
+    {
+      "id": "france",
+      "name": "France",
+      "geometryIds": [
+        "FXX"
+      ],
+      "locationCount": 45,
+      "continent": "Europe",
+      "label": [
+        46.696113,
+        2.552275
+      ],
+      "tiny": false
+    },
+    {
+      "id": "french-polynesia",
+      "name": "French Polynesia",
+      "geometryIds": [
+        "PYF"
+      ],
+      "locationCount": 1,
+      "continent": "Oceania",
+      "label": [
+        -17.628081,
+        -149.46157
+      ],
+      "tiny": true
+    },
+    {
+      "id": "georgia",
+      "name": "Georgia",
+      "geometryIds": [
+        "GEG"
+      ],
+      "locationCount": 1,
+      "continent": "Asia",
+      "label": [
+        41.870087,
+        43.735724
+      ],
+      "tiny": false
+    },
+    {
+      "id": "germany",
+      "name": "Germany",
+      "geometryIds": [
+        "DEU"
+      ],
+      "locationCount": 95,
+      "continent": "Europe",
+      "label": [
+        50.961733,
+        9.678348
+      ],
+      "tiny": false
+    },
+    {
+      "id": "greece",
+      "name": "Greece",
+      "geometryIds": [
+        "GRC"
+      ],
+      "locationCount": 3,
+      "continent": "Europe",
+      "label": [
+        39.492763,
+        21.72568
+      ],
+      "tiny": false
+    },
+    {
+      "id": "guadeloupe",
+      "name": "Guadeloupe",
+      "geometryIds": [
+        "GLP"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        16.299332,
+        -61.433565
+      ],
+      "tiny": false
+    },
+    {
+      "id": "guatemala",
+      "name": "Guatemala",
+      "geometryIds": [
+        "GTM"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        14.982133,
+        -90.497134
+      ],
+      "tiny": true
+    },
+    {
+      "id": "honduras",
+      "name": "Honduras",
+      "geometryIds": [
+        "HND"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        14.794801,
+        -86.887604
+      ],
+      "tiny": false
+    },
+    {
+      "id": "hong-kong",
+      "name": "Hong Kong",
+      "geometryIds": [
+        "HKG"
+      ],
+      "locationCount": 4,
+      "continent": "Asia",
+      "label": [
+        22.448829,
+        114.097769
+      ],
+      "tiny": false
+    },
+    {
+      "id": "hungary",
+      "name": "Hungary",
+      "geometryIds": [
+        "HUN"
+      ],
+      "locationCount": 2,
+      "continent": "Europe",
+      "label": [
+        47.086841,
+        19.447867
+      ],
+      "tiny": false
+    },
+    {
+      "id": "iceland",
+      "name": "Iceland",
+      "geometryIds": [
+        "ISL"
+      ],
+      "locationCount": 1,
+      "continent": "Europe",
+      "label": [
+        64.779286,
+        -18.673711
+      ],
+      "tiny": false
+    },
+    {
+      "id": "india",
+      "name": "India",
+      "geometryIds": [
+        "IND"
+      ],
+      "locationCount": 15,
+      "continent": "Asia",
+      "label": [
+        22.686852,
+        79.358105
+      ],
+      "tiny": false
+    },
+    {
+      "id": "indonesia",
+      "name": "Indonesia",
+      "geometryIds": [
+        "IDN"
+      ],
+      "locationCount": 2,
+      "continent": "Asia",
+      "label": [
+        -0.954404,
+        101.892949
+      ],
+      "tiny": false
+    },
+    {
+      "id": "ireland",
+      "name": "Ireland",
+      "geometryIds": [
+        "IRL"
+      ],
+      "locationCount": 2,
+      "continent": "Europe",
+      "label": [
+        53.078726,
+        -7.798588
+      ],
+      "tiny": false
+    },
+    {
+      "id": "israel",
+      "name": "Israel",
+      "geometryIds": [
+        "ISR"
+      ],
+      "locationCount": 2,
+      "continent": "Asia",
+      "label": [
+        30.911148,
+        34.847915
+      ],
+      "tiny": false
+    },
+    {
+      "id": "italy",
+      "name": "Italy",
+      "geometryIds": [
+        "ITA"
+      ],
+      "locationCount": 55,
+      "continent": "Europe",
+      "label": [
+        44.732482,
+        11.076907
+      ],
+      "tiny": false
+    },
+    {
+      "id": "jamaica",
+      "name": "Jamaica",
+      "geometryIds": [
+        "JAM"
+      ],
+      "locationCount": 2,
+      "continent": "North America",
+      "label": [
+        18.137124,
+        -77.318767
+      ],
+      "tiny": false
+    },
+    {
+      "id": "japan",
+      "name": "Japan",
+      "geometryIds": [
+        "JPN"
+      ],
+      "locationCount": 69,
+      "continent": "Asia",
+      "label": [
+        36.142538,
+        138.44217
+      ],
+      "tiny": false
+    },
+    {
+      "id": "jordan",
+      "name": "Jordan",
+      "geometryIds": [
+        "JOR"
+      ],
+      "locationCount": 1,
+      "continent": "Asia",
+      "label": [
+        30.805025,
+        36.375991
+      ],
+      "tiny": false
+    },
+    {
+      "id": "kazakhstan",
+      "name": "Kazakhstan",
+      "geometryIds": [
+        "KAZ"
+      ],
+      "locationCount": 2,
+      "continent": "Asia",
+      "label": [
+        49.054149,
+        68.685548
+      ],
+      "tiny": false
+    },
+    {
+      "id": "kenya",
+      "name": "Kenya",
+      "geometryIds": [
+        "KEN"
+      ],
+      "locationCount": 1,
+      "continent": "Africa",
+      "label": [
+        0.549043,
+        37.907632
+      ],
+      "tiny": false
+    },
+    {
+      "id": "kuwait",
+      "name": "Kuwait",
+      "geometryIds": [
+        "KWT"
+      ],
+      "locationCount": 2,
+      "continent": "Asia",
+      "label": [
+        29.413628,
+        47.313999
+      ],
+      "tiny": false
+    },
+    {
+      "id": "latvia",
+      "name": "Latvia",
+      "geometryIds": [
+        "LVA"
+      ],
+      "locationCount": 1,
+      "continent": "Europe",
+      "label": [
+        57.066872,
+        25.458723
+      ],
+      "tiny": false
+    },
+    {
+      "id": "lebanon",
+      "name": "Lebanon",
+      "geometryIds": [
+        "LBN"
+      ],
+      "locationCount": 2,
+      "continent": "Asia",
+      "label": [
+        34.133368,
+        35.992892
+      ],
+      "tiny": true
+    },
+    {
+      "id": "lithuania",
+      "name": "Lithuania",
+      "geometryIds": [
+        "LTU"
+      ],
+      "locationCount": 2,
+      "continent": "Europe",
+      "label": [
+        55.103703,
+        24.089932
+      ],
+      "tiny": false
+    },
+    {
+      "id": "luxembourg",
+      "name": "Luxembourg",
+      "geometryIds": [
+        "LUX"
+      ],
+      "locationCount": 2,
+      "continent": "Europe",
+      "label": [
+        49.733732,
+        6.07762
+      ],
+      "tiny": true
+    },
+    {
+      "id": "macau",
+      "name": "Macau",
+      "geometryIds": [
+        "MAC"
+      ],
+      "locationCount": 2,
+      "continent": "Asia",
+      "label": [
+        22.129735,
+        113.556038
+      ],
+      "tiny": false
+    },
+    {
+      "id": "malaysia",
+      "name": "Malaysia",
+      "geometryIds": [
+        "MYS"
+      ],
+      "locationCount": 4,
+      "continent": "Asia",
+      "label": [
+        2.528667,
+        113.83708
+      ],
+      "tiny": false
+    },
+    {
+      "id": "malta",
+      "name": "Malta",
+      "geometryIds": [
+        "MLT"
+      ],
+      "locationCount": 1,
+      "continent": "Europe",
+      "label": [
+        35.892886,
+        14.433005
+      ],
+      "tiny": true
+    },
+    {
+      "id": "martinique",
+      "name": "Martinique",
+      "geometryIds": [
+        "MTQ"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        14.711979,
+        -61.055657
+      ],
+      "tiny": false
+    },
+    {
+      "id": "mauritius",
+      "name": "Mauritius",
+      "geometryIds": [
+        "MUS"
+      ],
+      "locationCount": 1,
+      "continent": "Seven seas (open ocean)",
+      "label": [
+        -20.299506,
+        57.565848
+      ],
+      "tiny": true
+    },
+    {
+      "id": "mexico",
+      "name": "Mexico",
+      "geometryIds": [
+        "MEX"
+      ],
+      "locationCount": 18,
+      "continent": "North America",
+      "label": [
+        23.919988,
+        -102.289448
+      ],
+      "tiny": false
+    },
+    {
+      "id": "moldova",
+      "name": "Moldova",
+      "geometryIds": [
+        "MDA"
+      ],
+      "locationCount": 1,
+      "continent": "Europe",
+      "label": [
+        47.434999,
+        28.487904
+      ],
+      "tiny": false
+    },
+    {
+      "id": "monaco",
+      "name": "Monaco",
+      "geometryIds": [
+        "MCO"
+      ],
+      "locationCount": 1,
+      "continent": "Europe",
+      "label": [
+        43.739652,
+        7.398291
+      ],
+      "tiny": true
+    },
+    {
+      "id": "mongolia",
+      "name": "Mongolia",
+      "geometryIds": [
+        "MNG"
+      ],
+      "locationCount": 1,
+      "continent": "Asia",
+      "label": [
+        45.997488,
+        104.150405
+      ],
+      "tiny": false
+    },
+    {
+      "id": "morocco",
+      "name": "Morocco",
+      "geometryIds": [
+        "MAR"
+      ],
+      "locationCount": 4,
+      "continent": "Africa",
+      "label": [
+        31.650723,
+        -7.187296
+      ],
+      "tiny": false
+    },
+    {
+      "id": "netherlands",
+      "name": "Netherlands",
+      "geometryIds": [
+        "NLD"
+      ],
+      "locationCount": 9,
+      "continent": "Europe",
+      "label": [
+        52.422211,
+        5.61144
+      ],
+      "tiny": false
+    },
+    {
+      "id": "new-caledonia",
+      "name": "New Caledonia",
+      "geometryIds": [
+        "NCL"
+      ],
+      "locationCount": 1,
+      "continent": "Oceania",
+      "label": [
+        -21.064697,
+        165.084004
+      ],
+      "tiny": false
+    },
+    {
+      "id": "new-zealand",
+      "name": "New Zealand",
+      "geometryIds": [
+        "NZL"
+      ],
+      "locationCount": 4,
+      "continent": "Oceania",
+      "label": [
+        -39.759,
+        172.787
+      ],
+      "tiny": false
+    },
+    {
+      "id": "north-macedonia",
+      "name": "North Macedonia",
+      "geometryIds": [
+        "MKD"
+      ],
+      "locationCount": 1,
+      "continent": "Europe",
+      "label": [
+        41.558223,
+        21.555839
+      ],
+      "tiny": false
+    },
+    {
+      "id": "norway",
+      "name": "Norway",
+      "geometryIds": [
+        "NOR"
+      ],
+      "locationCount": 12,
+      "continent": "Europe",
+      "label": [
+        61.357092,
+        9.679975
+      ],
+      "tiny": false
+    },
+    {
+      "id": "oman",
+      "name": "Oman",
+      "geometryIds": [
+        "OMN"
+      ],
+      "locationCount": 1,
+      "continent": "Asia",
+      "label": [
+        22.120427,
+        57.336553
+      ],
+      "tiny": false
+    },
+    {
+      "id": "panama",
+      "name": "Panama",
+      "geometryIds": [
+        "PAN"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        8.72198,
+        -80.352106
+      ],
+      "tiny": false
+    },
+    {
+      "id": "paraguay",
+      "name": "Paraguay",
+      "geometryIds": [
+        "PRY"
+      ],
+      "locationCount": 2,
+      "continent": "South America",
+      "label": [
+        -21.674509,
+        -60.146394
+      ],
+      "tiny": false
+    },
+    {
+      "id": "peru",
+      "name": "Peru",
+      "geometryIds": [
+        "PER"
+      ],
+      "locationCount": 1,
+      "continent": "South America",
+      "label": [
+        -12.976679,
+        -72.90016
+      ],
+      "tiny": false
+    },
+    {
+      "id": "philippines",
+      "name": "Philippines",
+      "geometryIds": [
+        "PHL"
+      ],
+      "locationCount": 2,
+      "continent": "Asia",
+      "label": [
+        11.198,
+        122.465
+      ],
+      "tiny": false
+    },
+    {
+      "id": "poland",
+      "name": "Poland",
+      "geometryIds": [
+        "POL"
+      ],
+      "locationCount": 12,
+      "continent": "Europe",
+      "label": [
+        51.990316,
+        19.490468
+      ],
+      "tiny": false
+    },
+    {
+      "id": "portugal",
+      "name": "Portugal",
+      "geometryIds": [
+        "PRX"
+      ],
+      "locationCount": 9,
+      "continent": "Europe",
+      "label": [
+        39.606677,
+        -8.271745
+      ],
+      "tiny": false
+    },
+    {
+      "id": "puerto-rico",
+      "name": "Puerto Rico",
+      "geometryIds": [
+        "PRI"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        18.234668,
+        -66.481065
+      ],
+      "tiny": false
+    },
+    {
+      "id": "qatar",
+      "name": "Qatar",
+      "geometryIds": [
+        "QAT"
+      ],
+      "locationCount": 4,
+      "continent": "Asia",
+      "label": [
+        25.237383,
+        51.143509
+      ],
+      "tiny": false
+    },
+    {
+      "id": "romania",
+      "name": "Romania",
+      "geometryIds": [
+        "ROU"
+      ],
+      "locationCount": 3,
+      "continent": "Europe",
+      "label": [
+        45.733237,
+        24.972624
+      ],
+      "tiny": false
+    },
+    {
+      "id": "reunion",
+      "name": "Réunion",
+      "geometryIds": [
+        "REU"
+      ],
+      "locationCount": 1,
+      "continent": "Seven seas (open ocean)",
+      "label": [
+        -21.113488,
+        55.535699
+      ],
+      "tiny": false
+    },
+    {
+      "id": "saudi-arabia",
+      "name": "Saudi Arabia",
+      "geometryIds": [
+        "SAU"
+      ],
+      "locationCount": 8,
+      "continent": "Asia",
+      "label": [
+        23.806908,
+        44.6996
+      ],
+      "tiny": false
+    },
+    {
+      "id": "serbia",
+      "name": "Serbia",
+      "geometryIds": [
+        "SRS"
+      ],
+      "locationCount": 1,
+      "continent": "Europe",
+      "label": [
+        43.849527,
+        21.421523
+      ],
+      "tiny": false
+    },
+    {
+      "id": "singapore",
+      "name": "Singapore",
+      "geometryIds": [
+        "SGP"
+      ],
+      "locationCount": 2,
+      "continent": "Asia",
+      "label": [
+        1.366587,
+        103.816925
+      ],
+      "tiny": true
+    },
+    {
+      "id": "slovakia",
+      "name": "Slovakia",
+      "geometryIds": [
+        "SVK"
+      ],
+      "locationCount": 1,
+      "continent": "Europe",
+      "label": [
+        48.734044,
+        19.049868
+      ],
+      "tiny": false
+    },
+    {
+      "id": "slovenia",
+      "name": "Slovenia",
+      "geometryIds": [
+        "SVN"
+      ],
+      "locationCount": 3,
+      "continent": "Europe",
+      "label": [
+        46.06076,
+        14.915312
+      ],
+      "tiny": false
+    },
+    {
+      "id": "south-africa",
+      "name": "South Africa",
+      "geometryIds": [
+        "ZAF"
+      ],
+      "locationCount": 4,
+      "continent": "Africa",
+      "label": [
+        -29.708776,
+        23.665734
+      ],
+      "tiny": false
+    },
+    {
+      "id": "south-korea",
+      "name": "South Korea",
+      "geometryIds": [
+        "KOR"
+      ],
+      "locationCount": 24,
+      "continent": "Asia",
+      "label": [
+        36.384924,
+        128.129504
+      ],
+      "tiny": false
+    },
+    {
+      "id": "spain",
+      "name": "Spain",
+      "geometryIds": [
+        "ESP"
+      ],
+      "locationCount": 23,
+      "continent": "Europe",
+      "label": [
+        40.090953,
+        -3.464718
+      ],
+      "tiny": false
+    },
+    {
+      "id": "sri-lanka",
+      "name": "Sri Lanka",
+      "geometryIds": [
+        "LKA"
+      ],
+      "locationCount": 1,
+      "continent": "Asia",
+      "label": [
+        7.581097,
+        80.704823
+      ],
+      "tiny": false
+    },
+    {
+      "id": "sweden",
+      "name": "Sweden",
+      "geometryIds": [
+        "SWE"
+      ],
+      "locationCount": 16,
+      "continent": "Europe",
+      "label": [
+        65.85918,
+        19.01705
+      ],
+      "tiny": false
+    },
+    {
+      "id": "switzerland",
+      "name": "Switzerland",
+      "geometryIds": [
+        "CHE"
+      ],
+      "locationCount": 24,
+      "continent": "Europe",
+      "label": [
+        46.719114,
+        7.463965
+      ],
+      "tiny": false
+    },
+    {
+      "id": "taiwan",
+      "name": "Taiwan",
+      "geometryIds": [
+        "TWN"
+      ],
+      "locationCount": 10,
+      "continent": "Asia",
+      "label": [
+        23.652408,
+        120.868204
+      ],
+      "tiny": false
+    },
+    {
+      "id": "thailand",
+      "name": "Thailand",
+      "geometryIds": [
+        "THA"
+      ],
+      "locationCount": 6,
+      "continent": "Asia",
+      "label": [
+        15.45974,
+        101.073198
+      ],
+      "tiny": false
+    },
+    {
+      "id": "trinidad-and-tobago",
+      "name": "Trinidad and Tobago",
+      "geometryIds": [
+        "TTO"
+      ],
+      "locationCount": 1,
+      "continent": "North America",
+      "label": [
+        10.9989,
+        -60.9184
+      ],
+      "tiny": true
+    },
+    {
+      "id": "tunisia",
+      "name": "Tunisia",
+      "geometryIds": [
+        "TUN"
+      ],
+      "locationCount": 3,
+      "continent": "Africa",
+      "label": [
+        33.687263,
+        9.007881
+      ],
+      "tiny": false
+    },
+    {
+      "id": "turkiye",
+      "name": "Türkiye",
+      "geometryIds": [
+        "TUR"
+      ],
+      "locationCount": 10,
+      "continent": "Asia",
+      "label": [
+        39.345388,
+        34.508268
+      ],
+      "tiny": false
+    },
+    {
+      "id": "ukraine",
+      "name": "Ukraine",
+      "geometryIds": [
+        "UKR"
+      ],
+      "locationCount": 5,
+      "continent": "Europe",
+      "label": [
+        49.724739,
+        32.140865
+      ],
+      "tiny": false
+    },
+    {
+      "id": "united-arab-emirates",
+      "name": "United Arab Emirates",
+      "geometryIds": [
+        "ARE"
+      ],
+      "locationCount": 7,
+      "continent": "Asia",
+      "label": [
+        23.466285,
+        54.547256
+      ],
+      "tiny": false
+    },
+    {
+      "id": "united-kingdom",
+      "name": "United Kingdom",
+      "geometryIds": [
+        "ENG",
+        "WLS",
+        "SCT",
+        "NIR"
+      ],
+      "locationCount": 46,
+      "continent": "Europe",
+      "label": [
+        54.6,
+        -2.4
+      ],
+      "tiny": false
+    },
+    {
+      "id": "united-states",
+      "name": "United States",
+      "geometryIds": [
+        "USA"
+      ],
+      "locationCount": 218,
+      "continent": "North America",
+      "label": [
+        39.538479,
+        -97.482602
+      ],
+      "tiny": false
+    },
+    {
+      "id": "uruguay",
+      "name": "Uruguay",
+      "geometryIds": [
+        "URY"
+      ],
+      "locationCount": 1,
+      "continent": "South America",
+      "label": [
+        -32.961127,
+        -55.966942
+      ],
+      "tiny": false
+    },
+    {
+      "id": "uzbekistan",
+      "name": "Uzbekistan",
+      "geometryIds": [
+        "UZB"
+      ],
+      "locationCount": 2,
+      "continent": "Asia",
+      "label": [
+        41.693603,
+        64.005429
+      ],
+      "tiny": true
+    },
+    {
+      "id": "vietnam",
+      "name": "Vietnam",
+      "geometryIds": [
+        "VNM"
+      ],
+      "locationCount": 3,
+      "continent": "Asia",
+      "label": [
+        21.715416,
+        105.387292
+      ],
+      "tiny": true
+    }
+  ]
+}
