@@ -53,6 +53,14 @@ const UI_TEXT = {
 
 const copy = UI_TEXT[requestedLanguage];
 
+const CONTEXT_STYLE = {
+  color: "#666d72",
+  weight: 1.05,
+  opacity: 0.9,
+  fillColor: "#dedede",
+  fillOpacity: 0.94,
+};
+
 const NEUTRAL_STYLE = {
   color: "#707980",
   weight: 1.15,
@@ -108,6 +116,7 @@ const L = window.L;
 let regions = [];
 let answerLookup = new Map();
 let map = null;
+let contextLayer = null;
 let boundaryLayer = null;
 let layersByCode = new Map();
 let labels = [];
@@ -179,7 +188,7 @@ function fitItaly() {
   map.fitBounds(boundaryLayer.getBounds(), { animate: false, padding: [24, 24] });
 }
 
-function initializeMap(geojson) {
+function initializeMap(regionalGeojson, worldGeojson) {
   if (!L) throw new Error("Leaflet did not load.");
 
   map = L.map("world-map", {
@@ -192,14 +201,19 @@ function initializeMap(geojson) {
     minZoom: 4,
     maxZoom: 9,
     maxBounds: [
-      [34, 5],
-      [48.5, 20.5],
+      [32, -2],
+      [50, 25],
     ],
     maxBoundsViscosity: 1,
   });
 
+  contextLayer = L.geoJSON(worldGeojson, {
+    interactive: false,
+    style: () => ({ ...CONTEXT_STYLE }),
+  }).addTo(map);
+
   layersByCode = new Map();
-  boundaryLayer = L.geoJSON(geojson, {
+  boundaryLayer = L.geoJSON(regionalGeojson, {
     style: () => ({ ...NEUTRAL_STYLE }),
     onEachFeature(feature, layer) {
       const code = String(feature.properties?.reg_istat_code || "").padStart(2, "0");
@@ -208,7 +222,7 @@ function initializeMap(geojson) {
   }).addTo(map);
 
   map.attributionControl.addAttribution(
-    `${copy.attribution} <a href="https://github.com/guglielmo/geojson-italy">ISTAT / geojson-italy</a>`
+    `${copy.attribution} <a href="https://github.com/guglielmo/geojson-italy">ISTAT / geojson-italy</a> · <a href="https://www.naturalearthdata.com/">Natural Earth</a>`
   );
   fitItaly();
 
@@ -323,23 +337,26 @@ function finishQuiz(reason) {
 }
 
 async function loadQuiz() {
-  const [quizResponse, geometryResponse] = await Promise.all([
+  const [quizResponse, geometryResponse, contextResponse] = await Promise.all([
     fetch("./quiz_data.json", { cache: "no-store" }),
     fetch("./assets/italy-regions.geojson"),
+    fetch("../assets/ne_50m_admin_0_map_units.geojson"),
   ]);
 
   if (!quizResponse.ok) throw new Error(`Could not load quiz data (${quizResponse.status}).`);
   if (!geometryResponse.ok) throw new Error(`Could not load map data (${geometryResponse.status}).`);
+  if (!contextResponse.ok) throw new Error(`Could not load context map (${contextResponse.status}).`);
 
   const quizData = await quizResponse.json();
   const geography = await geometryResponse.json();
+  const worldGeography = await contextResponse.json();
   regions = quizData.regions;
   if (quizData.answerCount !== regions.length || regions.length !== 20) {
     throw new Error("The Italian regions answer count is inconsistent.");
   }
 
   buildAnswerLookup();
-  initializeMap(geography);
+  initializeMap(geography, worldGeography);
   validateCoverage();
 
   elements.score.textContent = `0/${regions.length}`;
