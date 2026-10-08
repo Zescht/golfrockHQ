@@ -143,7 +143,7 @@ function formatTime(seconds) {
 }
 
 function displayName(region) {
-  return region[requestedLanguage];
+  return region.it;
 }
 
 function applyLanguage() {
