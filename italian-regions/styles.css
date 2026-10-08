@@ -326,18 +326,14 @@ footer {
   text-align: center;
 }
 
-.timer-actions {
-  min-height: 18px;
-  margin: 4px auto 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.timer-display {
+  position: relative;
 }
 
 .give-up-button {
+  display: block;
   width: max-content;
-  margin: 0;
+  margin: 4px auto 0;
   padding: 0;
   border: 0;
   border-bottom: 1px solid currentColor;
@@ -357,11 +353,14 @@ footer {
 }
 
 .pause-button {
-  width: 22px;
-  height: 18px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 38px;
   display: inline-grid;
   place-items: center;
-  flex: 0 0 auto;
   padding: 0;
   border: 0;
   border-radius: 3px;
@@ -389,13 +388,14 @@ footer {
 .pause-icon {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
 }
 
 .pause-icon > span {
-  width: 3px;
-  height: 12px;
-  border-radius: 1px;
+  display: block;
+  width: 4px;
+  height: 18px;
+  flex: 0 0 4px;
   background: currentColor;
 }
 
@@ -427,12 +427,17 @@ footer {
 .map-frame #world-map,
 .map-frame .europe-inset {
   filter: blur(0);
-  transition: filter 1s ease;
 }
 
 .map-frame.is-paused #world-map,
 .map-frame.is-paused .europe-inset {
-  filter: blur(20px);
+  animation: pause-blur-in 1.5s ease-in-out forwards;
+  will-change: filter;
+}
+
+@keyframes pause-blur-in {
+  from { filter: blur(0); }
+  to { filter: blur(20px); }
 }
 
 .pause-overlay {
@@ -446,7 +451,6 @@ footer {
   color: #fff;
   background: rgba(26, 31, 35, .2);
   pointer-events: none;
-  transition: opacity 1s ease, visibility 0s linear 1s;
 }
 
 .pause-overlay span {
@@ -462,9 +466,13 @@ footer {
 
 .map-frame.is-paused .pause-overlay {
   visibility: visible;
-  opacity: 1;
   pointer-events: auto;
-  transition-delay: 0s;
+  animation: pause-overlay-in 1.5s ease-in-out forwards;
+}
+
+@keyframes pause-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 #world-map {
@@ -740,9 +748,8 @@ footer {
     text-align: right;
   }
 
-  .timer-actions {
+  .give-up-button {
     margin-right: 0;
-    justify-content: flex-end;
   }
 
   .quiz-notes {

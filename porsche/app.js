@@ -323,10 +323,8 @@ let labelLayoutHandle = null;
 let guessed = new Set();
 let secondsLeft = QUIZ_SECONDS;
 let timerHandle = null;
-let resumeTimeout = null;
 let isPlaying = false;
 let isPaused = false;
-let isResuming = false;
 
 function normalize(value) {
   return String(value || "")
@@ -792,7 +790,7 @@ function acceptAnswer(market) {
 }
 
 function tryAnswer() {
-  if (!isPlaying || isPaused || isResuming) return;
+  if (!isPlaying || isPaused) return;
   const market = answerLookup.get(normalize(elements.answerInput.value));
   if (market) acceptAnswer(market);
 }
@@ -819,7 +817,7 @@ function startTimer() {
 }
 
 function pauseQuiz() {
-  if (!isPlaying || isPaused || isResuming) return;
+  if (!isPlaying || isPaused) return;
   window.clearInterval(timerHandle);
   isPaused = true;
   elements.answerInput.disabled = true;
@@ -829,23 +827,15 @@ function pauseQuiz() {
 }
 
 function resumeQuiz() {
-  if (!isPlaying || !isPaused || isResuming) return;
+  if (!isPlaying || !isPaused) return;
   isPaused = false;
-  isResuming = true;
-  elements.pauseButton.disabled = true;
   setMapPaused(false);
   updatePauseButton();
-
-  window.clearTimeout(resumeTimeout);
-  resumeTimeout = window.setTimeout(() => {
-    if (!isPlaying) return;
-    isResuming = false;
-    elements.answerInput.disabled = false;
-    elements.giveUpButton.disabled = false;
-    elements.pauseButton.disabled = false;
-    elements.answerInput.focus();
-    startTimer();
-  }, 1000);
+  elements.answerInput.disabled = false;
+  elements.giveUpButton.disabled = false;
+  elements.pauseButton.disabled = false;
+  elements.answerInput.focus();
+  startTimer();
 }
 
 function togglePause() {
@@ -865,12 +855,10 @@ function setPlayingControls(playing) {
 
 function startQuiz() {
   window.clearInterval(timerHandle);
-  window.clearTimeout(resumeTimeout);
   guessed = new Set();
   secondsLeft = QUIZ_SECONDS;
   isPlaying = true;
   isPaused = false;
-  isResuming = false;
   setMapPaused(false);
   updatePauseButton();
   elements.europeInset.hidden = false;
@@ -890,9 +878,7 @@ function finishQuiz(reason) {
   if (!isPlaying) return;
   isPlaying = false;
   window.clearInterval(timerHandle);
-  window.clearTimeout(resumeTimeout);
   isPaused = false;
-  isResuming = false;
   setMapPaused(false);
   updatePauseButton();
   elements.answerInput.disabled = true;
