@@ -36,6 +36,15 @@ const OUTLINE_STYLE = {
   interactive: false,
 };
 
+const MERGED_BORDER_MASK_STYLE = {
+  weight: 4,
+  opacity: 1,
+  lineCap: "round",
+  lineJoin: "round",
+  fill: false,
+  interactive: false,
+};
+
 const elements = {
   startButton: document.querySelector("#start-button"),
   startButtonLabel: document.querySelector("#start-button-label"),
@@ -67,10 +76,12 @@ let guessedStates = new Set();
 let map = null;
 let stateLayer = null;
 let borderLayer = null;
+let mergedBorderMaskLayer = null;
 let secondsLeft = QUIZ_SECONDS;
 let timerHandle = null;
 let isPlaying = false;
 let isPaused = false;
+let revealedStates = new Set();
 
 function normalize(value) {
   return String(value || "")
@@ -148,9 +159,45 @@ function buildMergeGrid() {
   }
 }
 
+function stateFillColor(code) {
+  if (guessedStates.has(code)) return FOUND_STYLE.fillColor;
+  if (revealedStates.has(code)) return REVEALED_STYLE.fillColor;
+  return NEUTRAL_STYLE.fillColor;
+}
+
+function mergedBorderMaskStyle(feature) {
+  const colorA = stateFillColor(feature.properties.a);
+  const colorB = stateFillColor(feature.properties.b);
+
+  if (colorA === colorB) {
+    return {
+      ...MERGED_BORDER_MASK_STYLE,
+      color: colorA,
+      className: `merged-border-mask mask-${feature.properties.id}`,
+    };
+  }
+
+  return {
+    ...BORDER_STYLE,
+    weight: 2.2,
+    opacity: 1,
+    className: `answered-merged-border border-${feature.properties.id}`,
+  };
+}
+
 function renderBorders() {
   if (borderLayer) borderLayer.remove();
+  if (mergedBorderMaskLayer) mergedBorderMaskLayer.remove();
   const removedBorderIds = new Set(selectedPairs.map((pair) => pair.id));
+
+  mergedBorderMaskLayer = L.geoJSON(
+    {
+      type: "FeatureCollection",
+      features: allBorders.filter((feature) => removedBorderIds.has(feature.properties.id)),
+    },
+    { style: mergedBorderMaskStyle },
+  ).addTo(map);
+
   borderLayer = L.geoJSON(
     {
       type: "FeatureCollection",
@@ -163,6 +210,8 @@ function renderBorders() {
       }),
     },
   ).addTo(map);
+
+  // Keep every non-merged border above the wider masks so junctions remain crisp.
   borderLayer.bringToFront();
 }
 
@@ -175,6 +224,7 @@ function prepareRound() {
     .slice(0, PAIR_COUNT)
     .map((feature) => ({ ...feature.properties }));
   guessedStates = new Set();
+  revealedStates = new Set();
   buildRoundAnswers();
   buildMergeGrid();
   resetStateStyles();
@@ -234,6 +284,7 @@ function acceptAnswer(code) {
   guessedStates.add(code);
   fillAnswerSlots(code, "found");
   stateLayersByCode.get(code)?.setStyle(FOUND_STYLE);
+  renderBorders();
   updateScore();
   if (filledSlotCount() === SLOT_COUNT) finishQuiz("complete");
 }
@@ -304,6 +355,7 @@ function setPlayingControls(playing) {
 
 function resetRoundAnswers() {
   guessedStates = new Set();
+  revealedStates = new Set();
   for (const rows of slotElementsByCode.values()) {
     for (const row of rows) {
       row.textContent = "";
@@ -312,6 +364,7 @@ function resetRoundAnswers() {
     }
   }
   resetStateStyles();
+  renderBorders();
   updateScore();
 }
 
@@ -349,10 +402,13 @@ function finishQuiz(reason) {
   if (reason !== "complete") {
     for (const code of new Set(selectedPairs.flatMap((pair) => [pair.a, pair.b]))) {
       if (guessedStates.has(code)) continue;
+      revealedStates.add(code);
       fillAnswerSlots(code, "revealed");
       stateLayersByCode.get(code)?.setStyle(REVEALED_STYLE);
     }
   }
+
+  renderBorders();
 
   elements.completionMessage.textContent = reason === "complete"
     ? "Perfect — you found all ten answer slots."
