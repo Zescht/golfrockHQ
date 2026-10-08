@@ -326,10 +326,18 @@ footer {
   text-align: center;
 }
 
-.give-up-button {
-  display: block;
-  width: max-content;
+.timer-actions {
+  min-height: 18px;
   margin: 4px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.give-up-button {
+  width: max-content;
+  margin: 0;
   padding: 0;
   border: 0;
   border-bottom: 1px solid currentColor;
@@ -348,11 +356,115 @@ footer {
   opacity: .4;
 }
 
+.pause-button {
+  width: 22px;
+  height: 18px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  color: #34393d;
+  background: transparent;
+  cursor: pointer;
+  transition: color .15s ease, background .15s ease, opacity .15s ease;
+}
+
+.pause-button:hover:not(:disabled) {
+  color: #d5001c;
+  background: rgba(0, 0, 0, .05);
+}
+
+.pause-button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.pause-button:disabled {
+  cursor: default;
+  opacity: .4;
+}
+
+.pause-icon {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.pause-icon > span {
+  width: 3px;
+  height: 12px;
+  border-radius: 1px;
+  background: currentColor;
+}
+
+.play-icon {
+  display: none;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 9px solid currentColor;
+}
+
+.pause-button.is-paused .pause-icon {
+  display: none;
+}
+
+.pause-button.is-paused .play-icon {
+  display: block;
+}
+
 .map-frame {
   position: relative;
   overflow: hidden;
   border: 1px solid #c9ced2;
   background: #aadaff;
+}
+
+.map-frame #world-map,
+.map-frame .europe-inset {
+  filter: blur(0);
+  transition: filter 1s ease;
+}
+
+.map-frame.is-paused #world-map,
+.map-frame.is-paused .europe-inset {
+  filter: blur(20px);
+}
+
+.pause-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  opacity: 0;
+  color: #fff;
+  background: rgba(26, 31, 35, .2);
+  pointer-events: none;
+  transition: opacity 1s ease, visibility 0s linear 1s;
+}
+
+.pause-overlay span {
+  padding: 10px 22px;
+  border: 2px solid rgba(255, 255, 255, .9);
+  border-radius: 5px;
+  background: rgba(20, 24, 27, .62);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .2);
+  font-size: clamp(24px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.map-frame.is-paused .pause-overlay {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 
 #world-map {
@@ -628,8 +740,9 @@ footer {
     text-align: right;
   }
 
-  .give-up-button {
+  .timer-actions {
     margin-right: 0;
+    justify-content: flex-end;
   }
 
   .quiz-notes {

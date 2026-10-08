@@ -65,9 +65,15 @@
           <div class="counter timer-counter">
             <span id="timer-label">TIMER</span>
             <strong id="timer">05:00</strong>
-            <button class="give-up-button" id="give-up-button" type="button" hidden disabled>
-              Give up
-            </button>
+            <div class="timer-actions">
+              <button class="give-up-button" id="give-up-button" type="button" hidden disabled>
+                Give up
+              </button>
+              <button class="pause-button" id="pause-button" type="button" aria-label="Pause" title="Pause" hidden disabled>
+                <span class="pause-icon" aria-hidden="true"><span></span><span></span></span>
+                <span class="play-icon" aria-hidden="true"></span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -78,6 +84,9 @@
             aria-label="Map of Italy divided into its 20 regions. Correct answers are highlighted."
           ></div>
           <div class="map-loading" id="map-loading">Loading Italy map…</div>
+          <div class="pause-overlay" id="pause-overlay" aria-hidden="true">
+            <span id="pause-message">Pause</span>
+          </div>
         </div>
 
         <div class="completion-bar" id="completion-bar" hidden>

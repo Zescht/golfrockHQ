@@ -18,6 +18,9 @@ const UI_TEXT = {
     scoreLabel: "POINTS",
     timerLabel: "TIMER",
     giveUp: "Give up",
+    pause: "Pause",
+    resume: "Resume",
+    pauseMessage: "Pause",
     mapAria: "Map of Italy divided into its 20 regions. Correct answers are highlighted.",
     loadingMap: "Loading Italy map…",
     startQuiz: "PLAY QUIZ",
@@ -40,6 +43,9 @@ const UI_TEXT = {
     scoreLabel: "PUNKTE",
     timerLabel: "ZEIT",
     giveUp: "Aufgeben",
+    pause: "Pause",
+    resume: "Fortsetzen",
+    pauseMessage: "Pause",
     mapAria: "Karte Italiens mit seinen 20 Regionen. Richtige Antworten werden hervorgehoben.",
     loadingMap: "Italienkarte wird geladen…",
     startQuiz: "QUIZ SPIELEN",
@@ -104,6 +110,10 @@ const elements = {
   timerLabel: document.querySelector("#timer-label"),
   timer: document.querySelector("#timer"),
   giveUpButton: document.querySelector("#give-up-button"),
+  pauseButton: document.querySelector("#pause-button"),
+  mapFrame: document.querySelector(".map-frame"),
+  pauseOverlay: document.querySelector("#pause-overlay"),
+  pauseMessage: document.querySelector("#pause-message"),
   map: document.querySelector("#world-map"),
   mapLoading: document.querySelector("#map-loading"),
   completionBar: document.querySelector("#completion-bar"),
@@ -123,7 +133,10 @@ let labels = [];
 let guessed = new Set();
 let secondsLeft = QUIZ_SECONDS;
 let timerHandle = null;
+let resumeTimeout = null;
 let isPlaying = false;
+let isPaused = false;
+let isResuming = false;
 
 function normalize(value) {
   return String(value || "")
@@ -163,6 +176,8 @@ function applyLanguage() {
   elements.scoreLabel.textContent = copy.scoreLabel;
   elements.timerLabel.textContent = copy.timerLabel;
   elements.giveUpButton.textContent = copy.giveUp;
+  elements.pauseMessage.textContent = copy.pauseMessage;
+  updatePauseButton();
   elements.map.setAttribute("aria-label", copy.mapAria);
   elements.mapLoading.textContent = copy.loadingMap;
   elements.restartButton.textContent = copy.playAgain;
@@ -283,9 +298,65 @@ function acceptAnswer(region) {
 }
 
 function tryAnswer() {
-  if (!isPlaying) return;
+  if (!isPlaying || isPaused || isResuming) return;
   const region = answerLookup.get(normalize(elements.answerInput.value));
   if (region) acceptAnswer(region);
+}
+
+function updatePauseButton() {
+  const label = isPaused ? copy.resume : copy.pause;
+  elements.pauseButton.classList.toggle("is-paused", isPaused);
+  elements.pauseButton.setAttribute("aria-label", label);
+  elements.pauseButton.title = label;
+}
+
+function setMapPaused(paused) {
+  elements.mapFrame.classList.toggle("is-paused", paused);
+  elements.pauseOverlay.setAttribute("aria-hidden", String(!paused));
+}
+
+function startTimer() {
+  window.clearInterval(timerHandle);
+  timerHandle = window.setInterval(() => {
+    secondsLeft -= 1;
+    elements.timer.textContent = formatTime(Math.max(secondsLeft, 0));
+    if (secondsLeft <= 0) finishQuiz("time");
+  }, 1000);
+}
+
+function pauseQuiz() {
+  if (!isPlaying || isPaused || isResuming) return;
+  window.clearInterval(timerHandle);
+  isPaused = true;
+  elements.answerInput.disabled = true;
+  elements.giveUpButton.disabled = true;
+  setMapPaused(true);
+  updatePauseButton();
+}
+
+function resumeQuiz() {
+  if (!isPlaying || !isPaused || isResuming) return;
+  isPaused = false;
+  isResuming = true;
+  elements.pauseButton.disabled = true;
+  setMapPaused(false);
+  updatePauseButton();
+
+  window.clearTimeout(resumeTimeout);
+  resumeTimeout = window.setTimeout(() => {
+    if (!isPlaying) return;
+    isResuming = false;
+    elements.answerInput.disabled = false;
+    elements.giveUpButton.disabled = false;
+    elements.pauseButton.disabled = false;
+    elements.answerInput.focus();
+    startTimer();
+  }, 1000);
+}
+
+function togglePause() {
+  if (isPaused) resumeQuiz();
+  else pauseQuiz();
 }
 
 function setPlayingControls(playing) {
@@ -294,13 +365,20 @@ function setPlayingControls(playing) {
   elements.answerInput.disabled = !playing;
   elements.giveUpButton.hidden = !playing;
   elements.giveUpButton.disabled = !playing;
+  elements.pauseButton.hidden = !playing;
+  elements.pauseButton.disabled = !playing;
 }
 
 function startQuiz() {
   window.clearInterval(timerHandle);
+  window.clearTimeout(resumeTimeout);
   guessed = new Set();
   secondsLeft = QUIZ_SECONDS;
   isPlaying = true;
+  isPaused = false;
+  isResuming = false;
+  setMapPaused(false);
+  updatePauseButton();
   resetMap();
   updateScore();
   fitItaly();
@@ -310,21 +388,23 @@ function startQuiz() {
   elements.completionBar.hidden = true;
   setPlayingControls(true);
   elements.answerInput.focus();
-
-  timerHandle = window.setInterval(() => {
-    secondsLeft -= 1;
-    elements.timer.textContent = formatTime(Math.max(secondsLeft, 0));
-    if (secondsLeft <= 0) finishQuiz("time");
-  }, 1000);
+  startTimer();
 }
 
 function finishQuiz(reason) {
   if (!isPlaying) return;
   isPlaying = false;
   window.clearInterval(timerHandle);
+  window.clearTimeout(resumeTimeout);
+  isPaused = false;
+  isResuming = false;
+  setMapPaused(false);
+  updatePauseButton();
   elements.answerInput.disabled = true;
   elements.giveUpButton.disabled = true;
   elements.giveUpButton.hidden = true;
+  elements.pauseButton.disabled = true;
+  elements.pauseButton.hidden = true;
 
   if (reason !== "complete") {
     for (const region of regions) {
@@ -373,6 +453,7 @@ elements.restartButton.addEventListener("click", startQuiz);
 elements.answerInput.addEventListener("input", tryAnswer);
 elements.answerForm.addEventListener("submit", (event) => event.preventDefault());
 elements.giveUpButton.addEventListener("click", () => finishQuiz("giveup"));
+elements.pauseButton.addEventListener("click", togglePause);
 elements.languageSelect.addEventListener("change", () => {
   const url = new URL(window.location.href);
   url.searchParams.set("lang", elements.languageSelect.value);
