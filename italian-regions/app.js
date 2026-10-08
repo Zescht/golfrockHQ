@@ -10,6 +10,7 @@ const UI_TEXT = {
     quizNavLabel: "Quiz selection",
     porscheQuiz: "Porsche Centre",
     italyQuiz: "Italian Regions",
+    mergedStatesQuiz: "Merged US States",
     pageTitle: "Italian Regions — Map Quiz",
     title: "Italian Regions",
     intro: "Name all 20 regions of Italy. Each region counts once.",
@@ -35,6 +36,7 @@ const UI_TEXT = {
     quizNavLabel: "Quizauswahl",
     porscheQuiz: "Porsche Zentrum",
     italyQuiz: "Italienische Regionen",
+    mergedStatesQuiz: "Merged US States",
     pageTitle: "Italienische Regionen — Kartenquiz",
     title: "Italienische Regionen",
     intro: "Nenne alle 20 Regionen Italiens. Jede Region zählt einmal.",
@@ -97,6 +99,7 @@ const elements = {
   quizSelector: document.querySelector("#quiz-selector"),
   porscheQuizLink: document.querySelector("#porsche-quiz-link"),
   italyQuizLink: document.querySelector("#italy-quiz-link"),
+  mergedStatesQuizLink: document.querySelector("#merged-states-quiz-link"),
   title: document.querySelector("#title-line-1"),
   intro: document.querySelector("#intro-text"),
   startButton: document.querySelector("#start-button"),
@@ -165,8 +168,10 @@ function applyLanguage() {
   elements.quizSelector.setAttribute("aria-label", copy.quizNavLabel);
   elements.porscheQuizLink.textContent = copy.porscheQuiz;
   elements.italyQuizLink.textContent = copy.italyQuiz;
+  elements.mergedStatesQuizLink.textContent = copy.mergedStatesQuiz;
   elements.porscheQuizLink.href = `../porsche/?lang=${requestedLanguage}`;
   elements.italyQuizLink.href = `../italian-regions/?lang=${requestedLanguage}`;
+  elements.mergedStatesQuizLink.href = "../randomly-merged-us-states/?lang=en";
   elements.title.textContent = copy.title;
   elements.intro.textContent = copy.intro;
   elements.answerLabel.textContent = copy.answerLabel;

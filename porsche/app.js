@@ -14,6 +14,7 @@ const UI_TEXT = {
     quizNavLabel: "Quiz selection",
     porscheQuiz: "Porsche Centre",
     italyQuiz: "Italian Regions",
+    mergedStatesQuiz: "Merged US States",
     pageTitle: "Countries with a Porsche Centre — World Map Quiz",
     titleLine1: "Countries and overseas territories",
     titleLine2: "with a Porsche Centre",
@@ -45,6 +46,7 @@ const UI_TEXT = {
     quizNavLabel: "Quizauswahl",
     porscheQuiz: "Porsche Zentrum",
     italyQuiz: "Italienische Regionen",
+    mergedStatesQuiz: "Merged US States",
     pageTitle: "Länder mit einem Porsche Zentrum — Weltkarten-Quiz",
     titleLine1: "Länder und Überseegebiete",
     titleLine2: "mit einem Porsche Zentrum",
@@ -279,6 +281,7 @@ const elements = {
   quizSelector: document.querySelector("#quiz-selector"),
   porscheQuizLink: document.querySelector("#porsche-quiz-link"),
   italyQuizLink: document.querySelector("#italy-quiz-link"),
+  mergedStatesQuizLink: document.querySelector("#merged-states-quiz-link"),
   titleLine1: document.querySelector("#title-line-1"),
   titleLine2: document.querySelector("#title-line-2"),
   introText: document.querySelector("#intro-text"),
@@ -355,8 +358,10 @@ function applyLanguage() {
   elements.quizSelector.setAttribute("aria-label", copy.quizNavLabel);
   elements.porscheQuizLink.textContent = copy.porscheQuiz;
   elements.italyQuizLink.textContent = copy.italyQuiz;
+  elements.mergedStatesQuizLink.textContent = copy.mergedStatesQuiz;
   elements.porscheQuizLink.href = `../porsche/?lang=${requestedLanguage}`;
   elements.italyQuizLink.href = `../italian-regions/?lang=${requestedLanguage}`;
+  elements.mergedStatesQuizLink.href = "../randomly-merged-us-states/?lang=en";
   elements.titleLine1.textContent = copy.titleLine1;
   elements.titleLine2.textContent = copy.titleLine2;
   elements.introText.textContent = copy.intro;

@@ -4,34 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffffff" />
-    <title>Italian Regions — Map Quiz</title>
+    <title>Randomly Merged US States — Map Quiz</title>
     <link rel="stylesheet" href="./assets/leaflet.css" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="italian-regions">
+  <body class="merged-states-quiz">
     <header class="site-header">
       <a class="brand" href="#quiz" aria-label="GolfRock Headquarter">
         <span class="brand-bars" aria-hidden="true"><i></i><i></i><i></i></span>
         <span>GolfRock Headquarter</span>
       </a>
       <nav class="quiz-selector" id="quiz-selector" aria-label="Quiz selection">
-        <a id="porsche-quiz-link" href="../porsche/?lang=en">Porsche Centre</a>
-        <a id="italy-quiz-link" class="active" href="../italian-regions/?lang=en" aria-current="page">Italian Regions</a>
-        <a id="merged-states-quiz-link" href="../randomly-merged-us-states/?lang=en">Merged US States</a>
+        <a href="../porsche/?lang=en">Porsche Centre</a>
+        <a href="../italian-regions/?lang=en">Italian Regions</a>
+        <a class="active" href="../randomly-merged-us-states/?lang=en" aria-current="page">Merged US States</a>
       </nav>
       <div class="language-menu">
-        <label class="sr-only" id="language-label" for="language-select">Language</label>
-        <select id="language-select" aria-labelledby="language-label">
-          <option value="en">EN</option>
-          <option value="de">DE</option>
-        </select>
+        <span class="language-static" aria-label="Language: English">EN</span>
       </div>
     </header>
 
     <main>
       <section class="intro" aria-labelledby="page-title">
-        <h1 id="page-title"><span id="title-line-1">Italian Regions</span></h1>
-        <p id="intro-text">Name all 20 regions of Italy. Each region counts once.</p>
+        <h1 id="page-title">Randomly Merged US States</h1>
+        <p>Five random shared borders have disappeared. Name the ten states involved. A state may appear in more than one merge.</p>
       </section>
 
       <section class="quiz" id="quiz" aria-labelledby="page-title">
@@ -42,7 +38,7 @@
             </button>
 
             <form id="answer-form" class="answer-form" autocomplete="off" hidden>
-              <label id="answer-label" for="answer-input">Enter Regions:</label>
+              <label for="answer-input">Enter States:</label>
               <input
                 id="answer-input"
                 name="answer"
@@ -53,46 +49,46 @@
                 disabled
               />
               <span class="sr-only" id="answer-help">
-                Correct region names are accepted automatically. Incorrect answers receive no response.
+                Correct state names are accepted automatically. Incorrect answers receive no response.
               </span>
             </form>
           </div>
 
           <div class="counter score-counter" aria-live="polite" aria-atomic="true">
-            <span id="score-label">POINTS</span>
-            <strong id="score">0/20</strong>
+            <span>POINTS</span>
+            <strong id="score">0/10</strong>
           </div>
 
           <div class="counter timer-counter">
-            <span id="timer-label">TIMER</span>
+            <span>TIMER</span>
             <div class="timer-display">
               <button class="pause-button" id="pause-button" type="button" aria-label="Pause" title="Pause" hidden disabled>
                 <span class="pause-icon" aria-hidden="true"><span></span><span></span></span>
                 <span class="play-icon" aria-hidden="true"></span>
               </button>
-              <strong id="timer">05:00</strong>
+              <strong id="timer">04:00</strong>
             </div>
-            <button class="give-up-button" id="give-up-button" type="button" hidden disabled>
-              Give up
-            </button>
+            <button class="give-up-button" id="give-up-button" type="button" hidden disabled>Give up</button>
           </div>
         </div>
 
-        <div class="map-frame italy-map-frame">
+        <div class="map-frame us-map-frame">
           <div
             id="world-map"
             role="img"
-            aria-label="Map of Italy divided into its 20 regions. Correct answers are highlighted."
+            aria-label="Map of the contiguous United States. Five randomly selected shared state borders are missing."
           ></div>
-          <div class="map-loading" id="map-loading">Loading Italy map…</div>
+          <div class="map-loading" id="map-loading">Loading US states map…</div>
           <div class="pause-overlay" id="pause-overlay" aria-hidden="true">
-            <span id="pause-message">Pause</span>
+            <span>Pause</span>
           </div>
         </div>
 
+        <div class="merge-grid" id="merge-grid" aria-label="Five merged state pairs"></div>
+
         <div class="completion-bar" id="completion-bar" hidden>
           <p id="completion-message"></p>
-          <button id="restart-button" type="button">Play again</button>
+          <button id="restart-button" type="button">Play another map</button>
         </div>
       </section>
     </main>
