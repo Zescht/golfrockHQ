@@ -7,6 +7,12 @@ Static bilingual map quizzes published through GitHub Pages.
 
 The root page redirects to the Porsche quiz and preserves the selected language.
 
+## Project structure
+
+- `porsche/` contains the complete Porsche Centre quiz, including its scripts, styles, answer data, and map assets.
+- `italian-regions/` contains the complete Italian Regions quiz, including its scripts, styles, answer data, and map assets.
+- The repository root contains only the redirecting landing page and project-level files.
+
 ## Data sources
 
 - Porsche quiz answers: project-maintained official Porsche location workbook export.

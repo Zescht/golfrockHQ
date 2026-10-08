@@ -601,7 +601,7 @@ function initializeMap(geojson) {
   });
 
   L.imageOverlay(
-    "../assets/natural-earth-world-blue.jpg",
+    "./assets/natural-earth-world-blue.jpg",
     [
       [-90, -180],
       [90, 180],
@@ -633,7 +633,7 @@ function initializeMap(geojson) {
   });
 
   L.imageOverlay(
-    "../assets/natural-earth-world-blue.jpg",
+    "./assets/natural-earth-world-blue.jpg",
     [
       [-90, -180],
       [90, 180],
@@ -838,7 +838,7 @@ function finishQuiz(reason) {
 async function loadQuiz() {
   const [quizResponse, geometryResponse] = await Promise.all([
     fetch("./quiz_data.json", { cache: "no-store" }),
-    fetch("../assets/ne_50m_admin_0_map_units.geojson"),
+    fetch("./assets/ne_50m_admin_0_map_units.geojson"),
   ]);
 
   if (!quizResponse.ok) throw new Error(`Could not load quiz data (${quizResponse.status}).`);
