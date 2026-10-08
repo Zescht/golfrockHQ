@@ -766,9 +766,9 @@ function updateScore() {
 }
 
 function acceptAnswer(market) {
-  elements.answerInput.value = "";
   if (guessed.has(market.id)) return;
 
+  elements.answerInput.value = "";
   guessed.add(market.id);
   revealMarket(market, "found");
   updateScore();

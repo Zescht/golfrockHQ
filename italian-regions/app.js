@@ -274,8 +274,8 @@ function updateScore() {
 }
 
 function acceptAnswer(region) {
-  elements.answerInput.value = "";
   if (guessed.has(region.id)) return;
+  elements.answerInput.value = "";
   guessed.add(region.id);
   revealRegion(region, "found");
   updateScore();
