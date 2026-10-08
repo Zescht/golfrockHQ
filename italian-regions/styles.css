@@ -355,14 +355,14 @@ footer {
 .pause-button {
   position: absolute;
   top: 50%;
-  left: 0;
+  left: -12px;
   transform: translateY(-50%);
   width: 30px;
   height: 38px;
   display: inline-grid;
   place-items: center;
   padding: 0;
-  border: 0;
+  border: 1px solid #111;
   border-radius: 3px;
   color: #34393d;
   background: transparent;
