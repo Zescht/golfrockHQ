@@ -197,20 +197,32 @@ function borderLengthKm(feature) {
   ), 0);
 }
 
+function selectedAnswerCodes() {
+  return new Set(selectedPairs.flatMap((pair) => [pair.a, pair.b]));
+}
+
+function connectedSelectedBorders() {
+  const selectedCodes = selectedAnswerCodes();
+  return allBorders.filter((feature) => (
+    selectedCodes.has(feature.properties.a) && selectedCodes.has(feature.properties.b)
+  ));
+}
+
 function findJunctionStubIds() {
   // A very short third-state border can become an isolated tick when the long
   // border beside it is removed (for example NM-OK beside a NM-TX merge).
   // Mask only those tiny endpoint-connected fragments so they cannot reveal a merge.
-  const selectedIds = new Set(selectedPairs.map((pair) => pair.id));
-  const featuresById = new Map(allBorders.map((feature) => [feature.properties.id, feature]));
+  const selectedFeatures = connectedSelectedBorders();
+  const selectedIds = new Set(selectedFeatures.map((feature) => feature.properties.id));
   const stubIds = new Set();
 
-  for (const pair of selectedPairs) {
-    const selectedFeature = featuresById.get(pair.id);
-    if (!selectedFeature) continue;
+  for (const selectedFeature of selectedFeatures) {
     const selectedEndpoints = borderEndpoints(selectedFeature);
     const selectedLength = borderLengthKm(selectedFeature);
-    const selectedStates = new Set([pair.a, pair.b]);
+    const selectedStates = new Set([
+      selectedFeature.properties.a,
+      selectedFeature.properties.b,
+    ]);
 
     for (const candidate of allBorders) {
       if (selectedIds.has(candidate.properties.id)) continue;
@@ -272,8 +284,10 @@ function renderBorders() {
       return colorA !== NEUTRAL_STYLE.fillColor && colorA === colorB;
     })
     .map((feature) => feature.properties.id);
+  const connectedSelectedBorderIds = connectedSelectedBorders()
+    .map((feature) => feature.properties.id);
   const removedBorderIds = new Set([
-    ...selectedPairs.map((pair) => pair.id),
+    ...connectedSelectedBorderIds,
     ...junctionStubIds,
     ...matchingHighlightedBorderIds,
   ]);
