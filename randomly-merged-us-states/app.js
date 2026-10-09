@@ -265,9 +265,17 @@ function mergedBorderMaskStyle(feature) {
 function renderBorders() {
   if (borderLayer) borderLayer.remove();
   if (mergedBorderMaskLayer) mergedBorderMaskLayer.remove();
+  const matchingHighlightedBorderIds = allBorders
+    .filter((feature) => {
+      const colorA = stateFillColor(feature.properties.a);
+      const colorB = stateFillColor(feature.properties.b);
+      return colorA !== NEUTRAL_STYLE.fillColor && colorA === colorB;
+    })
+    .map((feature) => feature.properties.id);
   const removedBorderIds = new Set([
     ...selectedPairs.map((pair) => pair.id),
     ...junctionStubIds,
+    ...matchingHighlightedBorderIds,
   ]);
 
   mergedBorderMaskLayer = L.geoJSON(
