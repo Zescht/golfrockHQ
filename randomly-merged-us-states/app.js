@@ -1,6 +1,8 @@
 const QUIZ_SECONDS = 4 * 60;
 const PAIR_COUNT = 5;
 const SLOT_COUNT = PAIR_COUNT * 2;
+const MAX_JUNCTION_STUB_KM = 80;
+const MAX_JUNCTION_STUB_RATIO = 0.2;
 
 const NEUTRAL_STYLE = {
   stroke: false,
@@ -77,6 +79,7 @@ let map = null;
 let stateLayer = null;
 let borderLayer = null;
 let mergedBorderMaskLayer = null;
+let junctionStubIds = new Set();
 let secondsLeft = QUIZ_SECONDS;
 let timerHandle = null;
 let isPlaying = false;
@@ -159,6 +162,80 @@ function buildMergeGrid() {
   }
 }
 
+function borderSegments(feature) {
+  if (feature.geometry.type === "LineString") return [feature.geometry.coordinates];
+  return feature.geometry.coordinates;
+}
+
+function borderEndpoints(feature) {
+  const segments = borderSegments(feature);
+  return [segments[0][0], segments.at(-1).at(-1)];
+}
+
+function coordinatesMatch(first, second) {
+  return Math.abs(first[0] - second[0]) < 0.0001
+    && Math.abs(first[1] - second[1]) < 0.0001;
+}
+
+function segmentLengthKm(first, second) {
+  const radians = (degrees) => degrees * Math.PI / 180;
+  const latitudeDelta = radians(second[1] - first[1]);
+  const longitudeDelta = radians(second[0] - first[0]);
+  const latitudeA = radians(first[1]);
+  const latitudeB = radians(second[1]);
+  const haversine = Math.sin(latitudeDelta / 2) ** 2
+    + Math.cos(latitudeA) * Math.cos(latitudeB) * Math.sin(longitudeDelta / 2) ** 2;
+  return 6371 * 2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(1 - haversine));
+}
+
+function borderLengthKm(feature) {
+  return borderSegments(feature).reduce((total, segment) => (
+    total + segment.slice(1).reduce(
+      (segmentTotal, coordinate, index) => segmentTotal + segmentLengthKm(segment[index], coordinate),
+      0,
+    )
+  ), 0);
+}
+
+function findJunctionStubIds() {
+  // A very short third-state border can become an isolated tick when the long
+  // border beside it is removed (for example NM-OK beside a NM-TX merge).
+  // Mask only those tiny endpoint-connected fragments so they cannot reveal a merge.
+  const selectedIds = new Set(selectedPairs.map((pair) => pair.id));
+  const featuresById = new Map(allBorders.map((feature) => [feature.properties.id, feature]));
+  const stubIds = new Set();
+
+  for (const pair of selectedPairs) {
+    const selectedFeature = featuresById.get(pair.id);
+    if (!selectedFeature) continue;
+    const selectedEndpoints = borderEndpoints(selectedFeature);
+    const selectedLength = borderLengthKm(selectedFeature);
+    const selectedStates = new Set([pair.a, pair.b]);
+
+    for (const candidate of allBorders) {
+      if (selectedIds.has(candidate.properties.id)) continue;
+      const sharedStateCount = [candidate.properties.a, candidate.properties.b]
+        .filter((code) => selectedStates.has(code)).length;
+      if (sharedStateCount !== 1) continue;
+
+      const touchesSelectedEndpoint = borderEndpoints(candidate).some((candidateEndpoint) => (
+        selectedEndpoints.some((selectedEndpoint) => coordinatesMatch(candidateEndpoint, selectedEndpoint))
+      ));
+      if (!touchesSelectedEndpoint) continue;
+
+      const candidateLength = borderLengthKm(candidate);
+      if (
+        candidateLength <= MAX_JUNCTION_STUB_KM
+        && candidateLength <= selectedLength * MAX_JUNCTION_STUB_RATIO
+      ) {
+        stubIds.add(candidate.properties.id);
+      }
+    }
+  }
+
+  return stubIds;
+}
+
 function stateFillColor(code) {
   if (guessedStates.has(code)) return FOUND_STYLE.fillColor;
   if (revealedStates.has(code)) return REVEALED_STYLE.fillColor;
@@ -188,7 +265,10 @@ function mergedBorderMaskStyle(feature) {
 function renderBorders() {
   if (borderLayer) borderLayer.remove();
   if (mergedBorderMaskLayer) mergedBorderMaskLayer.remove();
-  const removedBorderIds = new Set(selectedPairs.map((pair) => pair.id));
+  const removedBorderIds = new Set([
+    ...selectedPairs.map((pair) => pair.id),
+    ...junctionStubIds,
+  ]);
 
   mergedBorderMaskLayer = L.geoJSON(
     {
@@ -225,6 +305,7 @@ function prepareRound() {
     .map((feature) => ({ ...feature.properties }));
   guessedStates = new Set();
   revealedStates = new Set();
+  junctionStubIds = findJunctionStubIds();
   buildRoundAnswers();
   buildMergeGrid();
   resetStateStyles();
