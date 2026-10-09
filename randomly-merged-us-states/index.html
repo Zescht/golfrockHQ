@@ -94,6 +94,8 @@
     </main>
 
     <script src="./assets/leaflet.js"></script>
-    <script src="./app.js" type="module"></script>
+    <script type="module">
+      import(`./app.js?v=${Date.now()}`);
+    </script>
   </body>
 </html>
