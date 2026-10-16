@@ -1,0 +1,16 @@
+{
+  "type": "largest",
+  "answerCount": 10,
+  "entries": [
+    {"id":"met","rank":1,"value":"3,800","city":{"en":"New York","de":"New York"},"country":{"en":"United States","de":"Vereinigte Staaten"},"name":"Metropolitan Opera House","aliases":["Metropolitan Opera","The Met","Met Opera","Met"]},
+    {"id":"lyric-chicago","rank":2,"value":"3,276","city":{"en":"Chicago","de":"Chicago"},"country":{"en":"United States","de":"Vereinigte Staaten"},"name":"Lyric Opera House","aliases":["Lyric Opera of Chicago","Civic Opera House","Chicago Lyric Opera"]},
+    {"id":"war-memorial","rank":3,"value":"3,146","city":{"en":"San Francisco","de":"San Francisco"},"country":{"en":"United States","de":"Vereinigte Staaten"},"name":"War Memorial Opera House","aliases":["San Francisco Opera House","San Francisco Opera","War Memorial"]},
+    {"id":"bastille","rank":4,"value":"2,715","city":{"en":"Paris","de":"Paris"},"country":{"en":"France","de":"Frankreich"},"name":"Opéra Bastille","aliases":["Opera Bastille","Bastille Opera","Bastille Opera House"]},
+    {"id":"detroit","rank":5,"value":"2,700+","city":{"en":"Detroit","de":"Detroit"},"country":{"en":"United States","de":"Vereinigte Staaten"},"name":"Detroit Opera House","aliases":["Detroit Opera","Michigan Opera Theatre"]},
+    {"id":"colon","rank":6,"value":"2,478","city":{"en":"Buenos Aires","de":"Buenos Aires"},"country":{"en":"Argentina","de":"Argentinien"},"name":"Teatro Colón","aliases":["Teatro Colon","Colon Theatre","Colon Theater","Colon Opera House"]},
+    {"id":"coliseum","rank":7,"value":"2,359","city":{"en":"London","de":"London"},"country":{"en":"United Kingdom","de":"Vereinigtes Königreich"},"name":"London Coliseum","aliases":["The Coliseum","English National Opera","ENO"]},
+    {"id":"liceu","rank":8,"value":"2,292","city":{"en":"Barcelona","de":"Barcelona"},"country":{"en":"Spain","de":"Spanien"},"name":"Gran Teatre del Liceu","aliases":["Liceu","Gran Teatro del Liceo","Teatro del Liceo","Liceo"]},
+    {"id":"royal-opera-house","rank":9,"value":"2,256","city":{"en":"London","de":"London"},"country":{"en":"United Kingdom","de":"Vereinigtes Königreich"},"name":"Royal Opera House","aliases":["Covent Garden","Royal Opera House Covent Garden","ROH"]},
+    {"id":"winspear","rank":10,"value":"2,200","city":{"en":"Dallas","de":"Dallas"},"country":{"en":"United States","de":"Vereinigte Staaten"},"name":"Winspear Opera House","aliases":["Margot and Bill Winspear Opera House","Dallas Opera House","The Winspear"]}
+  ]
+}

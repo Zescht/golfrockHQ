@@ -1,0 +1,16 @@
+{
+  "type": "oldest",
+  "answerCount": 10,
+  "entries": [
+    {"id":"san-carlo","rank":1,"value":"1737","city":{"en":"Naples","de":"Neapel"},"country":{"en":"Italy","de":"Italien"},"name":"Teatro di San Carlo","aliases":["San Carlo","Real Teatro di San Carlo","Teatro San Carlo","San Carlo Opera House"]},
+    {"id":"margravial","rank":2,"value":"1748","city":{"en":"Bayreuth","de":"Bayreuth"},"country":{"en":"Germany","de":"Deutschland"},"name":"Margravial Opera House","aliases":["Markgraefliches Opernhaus","Markgräfliches Opernhaus","Bayreuth Opera House","Margravial Theatre"]},
+    {"id":"rossini","rank":3,"value":"1761","city":{"en":"Lugo","de":"Lugo"},"country":{"en":"Italy","de":"Italien"},"name":"Teatro Rossini","aliases":["Rossini Theatre","Rossini Theater","Teatro Gioachino Rossini","Rossini Opera House"]},
+    {"id":"bologna","rank":4,"value":"1763","city":{"en":"Bologna","de":"Bologna"},"country":{"en":"Italy","de":"Italien"},"name":"Teatro Comunale di Bologna","aliases":["Teatro Comunale","Bologna Opera House","Comunale di Bologna","TCBO"]},
+    {"id":"drottningholm","rank":5,"value":"1766","city":{"en":"Drottningholm","de":"Drottningholm"},"country":{"en":"Sweden","de":"Schweden"},"name":"Drottningholm Palace Theatre","aliases":["Drottningholm Court Theatre","Drottningholm Theatre","Drottningholms Slottsteater","Schlosstheater Drottningholm"]},
+    {"id":"versailles","rank":6,"value":"1770","city":{"en":"Versailles","de":"Versailles"},"country":{"en":"France","de":"Frankreich"},"name":"Royal Opera of Versailles","aliases":["Opera Royal de Versailles","Opéra Royal de Versailles","Versailles Opera","Royal Opera Versailles","Opera Royal"]},
+    {"id":"fraschini","rank":7,"value":"1773","city":{"en":"Pavia","de":"Pavia"},"country":{"en":"Italy","de":"Italien"},"name":"Teatro Fraschini","aliases":["Fraschini Theatre","Fraschini Theater","Fraschini Opera House"]},
+    {"id":"scala","rank":8,"value":"1778","city":{"en":"Milan","de":"Mailand"},"country":{"en":"Italy","de":"Italien"},"name":"Teatro alla Scala","aliases":["La Scala","Scala","Milan Scala","Mailaender Scala","Mailänder Scala"]},
+    {"id":"bordeaux","rank":9,"value":"1780","city":{"en":"Bordeaux","de":"Bordeaux"},"country":{"en":"France","de":"Frankreich"},"name":"Grand-Théâtre de Bordeaux","aliases":["Grand Theatre de Bordeaux","Bordeaux Opera","Opera National de Bordeaux","Opéra National de Bordeaux","Grand Theatre Bordeaux"]},
+    {"id":"estates","rank":10,"value":"1783","city":{"en":"Prague","de":"Prag"},"country":{"en":"Czechia","de":"Tschechien"},"name":"Estates Theatre","aliases":["Estate Theatre","Stavovske divadlo","Stavovské divadlo","Staendestheater","Ständetheater","Estates Theater"]}
+  ]
+}

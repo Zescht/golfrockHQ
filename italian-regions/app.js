@@ -11,6 +11,8 @@ const UI_TEXT = {
     porscheQuiz: "Porsche Centre",
     italyQuiz: "Italian Regions",
     mergedStatesQuiz: "Merged US States",
+    largestOperaQuiz: "Largest Opera Houses",
+    oldestOperaQuiz: "Oldest Opera Houses",
     pageTitle: "Italian Regions — Map Quiz",
     title: "Italian Regions",
     intro: "Name all 20 regions of Italy. Each region counts once.",
@@ -37,6 +39,8 @@ const UI_TEXT = {
     porscheQuiz: "Porsche Zentrum",
     italyQuiz: "Italienische Regionen",
     mergedStatesQuiz: "Merged US States",
+    largestOperaQuiz: "Größte Opernhäuser",
+    oldestOperaQuiz: "Älteste Opernhäuser",
     pageTitle: "Italienische Regionen — Kartenquiz",
     title: "Italienische Regionen",
     intro: "Nenne alle 20 Regionen Italiens. Jede Region zählt einmal.",
@@ -100,6 +104,8 @@ const elements = {
   porscheQuizLink: document.querySelector("#porsche-quiz-link"),
   italyQuizLink: document.querySelector("#italy-quiz-link"),
   mergedStatesQuizLink: document.querySelector("#merged-states-quiz-link"),
+  largestOperaLink: document.querySelector("#largest-opera-link"),
+  oldestOperaLink: document.querySelector("#oldest-opera-link"),
   title: document.querySelector("#title-line-1"),
   intro: document.querySelector("#intro-text"),
   startButton: document.querySelector("#start-button"),
@@ -169,9 +175,13 @@ function applyLanguage() {
   elements.porscheQuizLink.textContent = copy.porscheQuiz;
   elements.italyQuizLink.textContent = copy.italyQuiz;
   elements.mergedStatesQuizLink.textContent = copy.mergedStatesQuiz;
+  elements.largestOperaLink.textContent = copy.largestOperaQuiz;
+  elements.oldestOperaLink.textContent = copy.oldestOperaQuiz;
   elements.porscheQuizLink.href = `../porsche/?lang=${requestedLanguage}`;
   elements.italyQuizLink.href = `../italian-regions/?lang=${requestedLanguage}`;
   elements.mergedStatesQuizLink.href = "../randomly-merged-us-states/?lang=en";
+  elements.largestOperaLink.href = `../largest-opera-houses/?lang=${requestedLanguage}`;
+  elements.oldestOperaLink.href = `../oldest-opera-houses/?lang=${requestedLanguage}`;
   elements.title.textContent = copy.title;
   elements.intro.textContent = copy.intro;
   elements.answerLabel.textContent = copy.answerLabel;

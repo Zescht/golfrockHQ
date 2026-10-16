@@ -15,6 +15,8 @@ const UI_TEXT = {
     porscheQuiz: "Porsche Centre",
     italyQuiz: "Italian Regions",
     mergedStatesQuiz: "Merged US States",
+    largestOperaQuiz: "Largest Opera Houses",
+    oldestOperaQuiz: "Oldest Opera Houses",
     pageTitle: "Countries with a Porsche Centre — World Map Quiz",
     titleLine1: "Countries and overseas territories",
     titleLine2: "with a Porsche Centre",
@@ -47,6 +49,8 @@ const UI_TEXT = {
     porscheQuiz: "Porsche Zentrum",
     italyQuiz: "Italienische Regionen",
     mergedStatesQuiz: "Merged US States",
+    largestOperaQuiz: "Größte Opernhäuser",
+    oldestOperaQuiz: "Älteste Opernhäuser",
     pageTitle: "Länder mit einem Porsche Zentrum — Weltkarten-Quiz",
     titleLine1: "Länder und Überseegebiete",
     titleLine2: "mit einem Porsche Zentrum",
@@ -282,6 +286,8 @@ const elements = {
   porscheQuizLink: document.querySelector("#porsche-quiz-link"),
   italyQuizLink: document.querySelector("#italy-quiz-link"),
   mergedStatesQuizLink: document.querySelector("#merged-states-quiz-link"),
+  largestOperaLink: document.querySelector("#largest-opera-link"),
+  oldestOperaLink: document.querySelector("#oldest-opera-link"),
   titleLine1: document.querySelector("#title-line-1"),
   titleLine2: document.querySelector("#title-line-2"),
   introText: document.querySelector("#intro-text"),
@@ -359,9 +365,13 @@ function applyLanguage() {
   elements.porscheQuizLink.textContent = copy.porscheQuiz;
   elements.italyQuizLink.textContent = copy.italyQuiz;
   elements.mergedStatesQuizLink.textContent = copy.mergedStatesQuiz;
+  elements.largestOperaLink.textContent = copy.largestOperaQuiz;
+  elements.oldestOperaLink.textContent = copy.oldestOperaQuiz;
   elements.porscheQuizLink.href = `../porsche/?lang=${requestedLanguage}`;
   elements.italyQuizLink.href = `../italian-regions/?lang=${requestedLanguage}`;
   elements.mergedStatesQuizLink.href = "../randomly-merged-us-states/?lang=en";
+  elements.largestOperaLink.href = `../largest-opera-houses/?lang=${requestedLanguage}`;
+  elements.oldestOperaLink.href = `../oldest-opera-houses/?lang=${requestedLanguage}`;
   elements.titleLine1.textContent = copy.titleLine1;
   elements.titleLine2.textContent = copy.titleLine2;
   elements.introText.textContent = copy.intro;

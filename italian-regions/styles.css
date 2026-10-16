@@ -100,18 +100,27 @@ button {
   position: absolute;
   left: 50%;
   top: 50%;
+  width: min(760px, calc(100% - 440px));
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 3px;
+  overflow-x: auto;
+  scrollbar-width: none;
   transform: translate(-50%, -50%);
 }
 
+.quiz-selector::-webkit-scrollbar {
+  display: none;
+}
+
 .quiz-selector a {
-  padding: 8px 12px;
+  flex: 0 0 auto;
+  padding: 8px 9px;
   border: 1px solid transparent;
   border-radius: 4px;
   color: #73787d;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   line-height: 1;
   text-decoration: none;
@@ -655,10 +664,12 @@ footer {
 }
 
 @media (max-width: 850px) {
+  .brand > span:last-child {
+    display: none;
+  }
+
   .quiz-selector {
-    left: auto;
-    right: 100px;
-    transform: translateY(-50%);
+    width: calc(100% - 180px);
   }
 
   .quiz-selector a {
@@ -696,11 +707,16 @@ footer {
     position: static;
     order: 3;
     width: 100%;
+    justify-content: flex-start;
     transform: none;
   }
 
+  .brand > span:last-child {
+    display: inline;
+  }
+
   .quiz-selector a {
-    flex: 1;
+    flex: 0 0 auto;
     padding-block: 9px;
     text-align: center;
   }
